@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/point_test.dir/closest_pair_test.cpp.o CMakeFiles/point_test.dir/closest_pair.cpp.o CMakeFiles/point_test.dir/point.cpp.o -o point_test  /usr/local/lib/libCatch2Main.a /usr/local/lib/libCatch2.a 

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -rdynamic CMakeFiles/tests.dir/main.o CMakeFiles/tests.dir/closest_pair.o CMakeFiles/tests.dir/point.o -o tests  /usr/local/lib/libCatch2Main.a /usr/local/lib/libCatch2.a 

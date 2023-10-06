@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Persistent-world.dir/closest_pair_test.cpp.o -o Persistent-world  /usr/local/lib/libCatch2.a 
