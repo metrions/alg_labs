@@ -1,5 +1,5 @@
 CMakeFiles/tests.dir/lcs_test.o: \
- /home/ilya/Рабочий\ стол/algoritm/lab_3/lcs_test.cpp \
+ /home/ilya/Рабочий\ стол/algoritm/lab_3/first/lcs_test.cpp \
  /usr/include/stdc-predef.h \
  /usr/local/include/catch2/catch_test_macros.hpp \
  /usr/local/include/catch2/internal/catch_test_macro_impl.hpp \
@@ -259,4 +259,4 @@ CMakeFiles/tests.dir/lcs_test.o: \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /usr/local/include/catch2/benchmark/detail/catch_analyse.hpp \
  /usr/local/include/catch2/benchmark/catch_sample_analysis.hpp \
- /home/ilya/Рабочий\ стол/algoritm/lab_3/lcs.h
+ /home/ilya/Рабочий\ стол/algoritm/lab_3/first/lcs.h

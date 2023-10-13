@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ilya/Рабочий стол/algoritm/lab_3"
+CMAKE_SOURCE_DIR = "/home/ilya/Рабочий стол/algoritm/lab_3/first"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ilya/Рабочий стол/algoritm/lab_3/tmp"
+CMAKE_BINARY_DIR = "/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/tests.dir/depend.make
@@ -72,30 +72,30 @@ include CMakeFiles/tests.dir/flags.make
 CMakeFiles/tests.dir/lcs.o: CMakeFiles/tests.dir/flags.make
 CMakeFiles/tests.dir/lcs.o: ../lcs.cpp
 CMakeFiles/tests.dir/lcs.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/lcs.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/lcs.o -MF CMakeFiles/tests.dir/lcs.o.d -o CMakeFiles/tests.dir/lcs.o -c "/home/ilya/Рабочий стол/algoritm/lab_3/lcs.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/lcs.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/lcs.o -MF CMakeFiles/tests.dir/lcs.o.d -o CMakeFiles/tests.dir/lcs.o -c "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs.cpp"
 
 CMakeFiles/tests.dir/lcs.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/lcs.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_3/lcs.cpp" > CMakeFiles/tests.dir/lcs.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs.cpp" > CMakeFiles/tests.dir/lcs.i
 
 CMakeFiles/tests.dir/lcs.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/lcs.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_3/lcs.cpp" -o CMakeFiles/tests.dir/lcs.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs.cpp" -o CMakeFiles/tests.dir/lcs.s
 
 CMakeFiles/tests.dir/lcs_test.o: CMakeFiles/tests.dir/flags.make
 CMakeFiles/tests.dir/lcs_test.o: ../lcs_test.cpp
 CMakeFiles/tests.dir/lcs_test.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/lcs_test.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/lcs_test.o -MF CMakeFiles/tests.dir/lcs_test.o.d -o CMakeFiles/tests.dir/lcs_test.o -c "/home/ilya/Рабочий стол/algoritm/lab_3/lcs_test.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/lcs_test.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/lcs_test.o -MF CMakeFiles/tests.dir/lcs_test.o.d -o CMakeFiles/tests.dir/lcs_test.o -c "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs_test.cpp"
 
 CMakeFiles/tests.dir/lcs_test.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/lcs_test.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_3/lcs_test.cpp" > CMakeFiles/tests.dir/lcs_test.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs_test.cpp" > CMakeFiles/tests.dir/lcs_test.i
 
 CMakeFiles/tests.dir/lcs_test.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/lcs_test.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_3/lcs_test.cpp" -o CMakeFiles/tests.dir/lcs_test.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs_test.cpp" -o CMakeFiles/tests.dir/lcs_test.s
 
 # Object files for target tests
 tests_OBJECTS = \
@@ -111,7 +111,7 @@ tests: CMakeFiles/tests.dir/build.make
 tests: /usr/local/lib/libCatch2Main.a
 tests: /usr/local/lib/libCatch2.a
 tests: CMakeFiles/tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/tests.dir/clean:
 .PHONY : CMakeFiles/tests.dir/clean
 
 CMakeFiles/tests.dir/depend:
-	cd "/home/ilya/Рабочий стол/algoritm/lab_3/tmp" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ilya/Рабочий стол/algoritm/lab_3" "/home/ilya/Рабочий стол/algoritm/lab_3" "/home/ilya/Рабочий стол/algoritm/lab_3/tmp" "/home/ilya/Рабочий стол/algoritm/lab_3/tmp" "/home/ilya/Рабочий стол/algoritm/lab_3/tmp/CMakeFiles/tests.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ilya/Рабочий стол/algoritm/lab_3/first" "/home/ilya/Рабочий стол/algoritm/lab_3/first" "/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp" "/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp" "/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp/CMakeFiles/tests.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/tests.dir/depend
 

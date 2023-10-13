@@ -43,6 +43,24 @@ string lcs(const string &first, const string &second) {
     return t;
 }
 
+string lcs_slow(const string &first, const string &second){
+    string m = "";
+    if (first.size() && second.size()){
+        if (first[first.length()-1] == second[second.length()-1]){
+            return lcs_slow(first.substr(0, first.length()-1), second.substr(0, second.length()-1)) + first[first.length()-1];
+        }
+        else{
+            string t1 = lcs_slow(first.substr(0, first.length()-1), second.substr(0, second.length()));
+            string t2 = lcs_slow(first.substr(0, first.length()), second.substr(0, second.length()-1));
+            m = (t1.length() > t2.length()) ? t1 : t2;
+        }
+    }   
+    else{
+        return "";
+    }
+    return m;
+}
+
 
 
 

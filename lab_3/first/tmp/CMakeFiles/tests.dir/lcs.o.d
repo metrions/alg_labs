@@ -1,7 +1,7 @@
 CMakeFiles/tests.dir/lcs.o: \
- /home/ilya/Рабочий\ стол/algoritm/lab_3/lcs.cpp \
+ /home/ilya/Рабочий\ стол/algoritm/lab_3/first/lcs.cpp \
  /usr/include/stdc-predef.h \
- /home/ilya/Рабочий\ стол/algoritm/lab_3/lcs.h \
+ /home/ilya/Рабочий\ стол/algoritm/lab_3/first/lcs.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

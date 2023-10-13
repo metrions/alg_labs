@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ilya/Рабочий стол/algoritm/lab_3/lcs.cpp" "CMakeFiles/tests.dir/lcs.o" "gcc" "CMakeFiles/tests.dir/lcs.o.d"
-  "/home/ilya/Рабочий стол/algoritm/lab_3/lcs_test.cpp" "CMakeFiles/tests.dir/lcs_test.o" "gcc" "CMakeFiles/tests.dir/lcs_test.o.d"
+  "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs.cpp" "CMakeFiles/tests.dir/lcs.o" "gcc" "CMakeFiles/tests.dir/lcs.o.d"
+  "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs_test.cpp" "CMakeFiles/tests.dir/lcs_test.o" "gcc" "CMakeFiles/tests.dir/lcs_test.o.d"
   )
 
 # Targets to which this target links.
