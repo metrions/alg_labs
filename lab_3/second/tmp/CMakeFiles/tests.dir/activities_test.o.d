@@ -261,8 +261,8 @@ CMakeFiles/tests.dir/activities_test.o: \
  /usr/local/include/catch2/benchmark/catch_sample_analysis.hpp \
  /home/ilya/Рабочий\ стол/algoritm/lab_3/second/activities.h \
  /home/ilya/Рабочий\ стол/algoritm/lab_3/second/activity.h \
- /usr/include/c++/11/set /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/iostream /usr/include/c++/11/istream \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_tree.h /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h /usr/include/c++/11/sstream \
- /usr/include/c++/11/istream /usr/include/c++/11/bits/istream.tcc \
  /usr/include/c++/11/bits/sstream.tcc

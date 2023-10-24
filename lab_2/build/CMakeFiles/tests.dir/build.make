@@ -69,24 +69,10 @@ include CMakeFiles/tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/tests.dir/flags.make
 
-CMakeFiles/tests.dir/main.o: CMakeFiles/tests.dir/flags.make
-CMakeFiles/tests.dir/main.o: ../main.cpp
-CMakeFiles/tests.dir/main.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/main.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/main.o -MF CMakeFiles/tests.dir/main.o.d -o CMakeFiles/tests.dir/main.o -c "/home/ilya/Рабочий стол/algoritm/lab_2/main.cpp"
-
-CMakeFiles/tests.dir/main.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/main.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_2/main.cpp" > CMakeFiles/tests.dir/main.i
-
-CMakeFiles/tests.dir/main.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/main.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_2/main.cpp" -o CMakeFiles/tests.dir/main.s
-
 CMakeFiles/tests.dir/closest_pair.o: CMakeFiles/tests.dir/flags.make
 CMakeFiles/tests.dir/closest_pair.o: ../closest_pair.cpp
 CMakeFiles/tests.dir/closest_pair.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/closest_pair.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/closest_pair.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/closest_pair.o -MF CMakeFiles/tests.dir/closest_pair.o.d -o CMakeFiles/tests.dir/closest_pair.o -c "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair.cpp"
 
 CMakeFiles/tests.dir/closest_pair.i: cmake_force
@@ -100,7 +86,7 @@ CMakeFiles/tests.dir/closest_pair.s: cmake_force
 CMakeFiles/tests.dir/point.o: CMakeFiles/tests.dir/flags.make
 CMakeFiles/tests.dir/point.o: ../point.cpp
 CMakeFiles/tests.dir/point.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tests.dir/point.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/point.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/point.o -MF CMakeFiles/tests.dir/point.o.d -o CMakeFiles/tests.dir/point.o -c "/home/ilya/Рабочий стол/algoritm/lab_2/point.cpp"
 
 CMakeFiles/tests.dir/point.i: cmake_force
@@ -111,18 +97,32 @@ CMakeFiles/tests.dir/point.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/point.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_2/point.cpp" -o CMakeFiles/tests.dir/point.s
 
+CMakeFiles/tests.dir/closest_pair_test.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/closest_pair_test.o: ../closest_pair_test.cpp
+CMakeFiles/tests.dir/closest_pair_test.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tests.dir/closest_pair_test.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/closest_pair_test.o -MF CMakeFiles/tests.dir/closest_pair_test.o.d -o CMakeFiles/tests.dir/closest_pair_test.o -c "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair_test.cpp"
+
+CMakeFiles/tests.dir/closest_pair_test.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/closest_pair_test.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair_test.cpp" > CMakeFiles/tests.dir/closest_pair_test.i
+
+CMakeFiles/tests.dir/closest_pair_test.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/closest_pair_test.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair_test.cpp" -o CMakeFiles/tests.dir/closest_pair_test.s
+
 # Object files for target tests
 tests_OBJECTS = \
-"CMakeFiles/tests.dir/main.o" \
 "CMakeFiles/tests.dir/closest_pair.o" \
-"CMakeFiles/tests.dir/point.o"
+"CMakeFiles/tests.dir/point.o" \
+"CMakeFiles/tests.dir/closest_pair_test.o"
 
 # External object files for target tests
 tests_EXTERNAL_OBJECTS =
 
-tests: CMakeFiles/tests.dir/main.o
 tests: CMakeFiles/tests.dir/closest_pair.o
 tests: CMakeFiles/tests.dir/point.o
+tests: CMakeFiles/tests.dir/closest_pair_test.o
 tests: CMakeFiles/tests.dir/build.make
 tests: /usr/local/lib/libCatch2Main.a
 tests: /usr/local/lib/libCatch2.a

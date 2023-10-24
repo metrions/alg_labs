@@ -145,19 +145,19 @@ lcs.s:
 .PHONY : lcs.s
 
 # target to build an object file
-lcs_test.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/lcs_test.o
-.PHONY : lcs_test.o
+main.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.o
+.PHONY : main.o
 
 # target to preprocess a source file
-lcs_test.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/lcs_test.i
-.PHONY : lcs_test.i
+main.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.i
+.PHONY : main.i
 
 # target to generate assembly for a file
-lcs_test.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/lcs_test.s
-.PHONY : lcs_test.s
+main.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.s
+.PHONY : main.s
 
 # Help Target
 help:
@@ -171,9 +171,9 @@ help:
 	@echo "... lcs.o"
 	@echo "... lcs.i"
 	@echo "... lcs.s"
-	@echo "... lcs_test.o"
-	@echo "... lcs_test.i"
-	@echo "... lcs_test.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -17,12 +17,10 @@ std::pair<Point, Point> closest_pair_slow(const std::vector<Point> &points) {
 
 std::pair<Point, Point> closest_pair_fast(const std::vector<Point> &points) {
     if (points.size() < 2) {
-        cout << "ASDASD";
 		throw std::invalid_argument("Not enough points");
         return closest_fast(points);
 	}
     else{
-        cout << "ASDASD";
         return closest_fast(points);
     }
     return closest_fast(points);

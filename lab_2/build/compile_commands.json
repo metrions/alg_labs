@@ -1,11 +1,6 @@
 [
 {
   "directory": "/home/ilya/Рабочий стол/algoritm/lab_2/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/tests.dir/main.o -c \"/home/ilya/Рабочий стол/algoritm/lab_2/main.cpp\"",
-  "file": "/home/ilya/Рабочий стол/algoritm/lab_2/main.cpp"
-},
-{
-  "directory": "/home/ilya/Рабочий стол/algoritm/lab_2/build",
   "command": "/usr/bin/g++   -g -o CMakeFiles/tests.dir/closest_pair.o -c \"/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair.cpp\"",
   "file": "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair.cpp"
 },
@@ -13,5 +8,10 @@
   "directory": "/home/ilya/Рабочий стол/algoritm/lab_2/build",
   "command": "/usr/bin/g++   -g -o CMakeFiles/tests.dir/point.o -c \"/home/ilya/Рабочий стол/algoritm/lab_2/point.cpp\"",
   "file": "/home/ilya/Рабочий стол/algoritm/lab_2/point.cpp"
+},
+{
+  "directory": "/home/ilya/Рабочий стол/algoritm/lab_2/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/tests.dir/closest_pair_test.o -c \"/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair_test.cpp\"",
+  "file": "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair_test.cpp"
 }
 ]

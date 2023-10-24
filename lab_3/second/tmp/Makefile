@@ -145,21 +145,6 @@ activities.s:
 .PHONY : activities.s
 
 # target to build an object file
-activities_test.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/activities_test.o
-.PHONY : activities_test.o
-
-# target to preprocess a source file
-activities_test.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/activities_test.i
-.PHONY : activities_test.i
-
-# target to generate assembly for a file
-activities_test.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/activities_test.s
-.PHONY : activities_test.s
-
-# target to build an object file
 activity.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/activity.o
 .PHONY : activity.o
@@ -174,6 +159,21 @@ activity.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/activity.s
 .PHONY : activity.s
 
+# target to build an object file
+main.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.o
+.PHONY : main.o
+
+# target to preprocess a source file
+main.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.i
+.PHONY : main.i
+
+# target to generate assembly for a file
+main.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.s
+.PHONY : main.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +186,12 @@ help:
 	@echo "... activities.o"
 	@echo "... activities.i"
 	@echo "... activities.s"
-	@echo "... activities_test.o"
-	@echo "... activities_test.i"
-	@echo "... activities_test.s"
 	@echo "... activity.o"
 	@echo "... activity.i"
 	@echo "... activity.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

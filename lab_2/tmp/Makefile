@@ -145,19 +145,19 @@ closest_pair.s:
 .PHONY : closest_pair.s
 
 # target to build an object file
-main.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.o
-.PHONY : main.o
+closest_pair_test.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/closest_pair_test.o
+.PHONY : closest_pair_test.o
 
 # target to preprocess a source file
-main.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.i
-.PHONY : main.i
+closest_pair_test.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/closest_pair_test.i
+.PHONY : closest_pair_test.i
 
 # target to generate assembly for a file
-main.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.s
-.PHONY : main.s
+closest_pair_test.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/closest_pair_test.s
+.PHONY : closest_pair_test.s
 
 # target to build an object file
 point.o:
@@ -186,9 +186,9 @@ help:
 	@echo "... closest_pair.o"
 	@echo "... closest_pair.i"
 	@echo "... closest_pair.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... closest_pair_test.o"
+	@echo "... closest_pair_test.i"
+	@echo "... closest_pair_test.s"
 	@echo "... point.o"
 	@echo "... point.i"
 	@echo "... point.s"

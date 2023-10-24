@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair.cpp" "CMakeFiles/tests.dir/closest_pair.o" "gcc" "CMakeFiles/tests.dir/closest_pair.o.d"
-  "/home/ilya/Рабочий стол/algoritm/lab_2/main.cpp" "CMakeFiles/tests.dir/main.o" "gcc" "CMakeFiles/tests.dir/main.o.d"
+  "/home/ilya/Рабочий стол/algoritm/lab_2/closest_pair_test.cpp" "CMakeFiles/tests.dir/closest_pair_test.o" "gcc" "CMakeFiles/tests.dir/closest_pair_test.o.d"
   "/home/ilya/Рабочий стол/algoritm/lab_2/point.cpp" "CMakeFiles/tests.dir/point.o" "gcc" "CMakeFiles/tests.dir/point.o.d"
   )
 

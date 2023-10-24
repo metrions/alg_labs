@@ -83,30 +83,30 @@ CMakeFiles/tests.dir/lcs.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/lcs.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs.cpp" -o CMakeFiles/tests.dir/lcs.s
 
-CMakeFiles/tests.dir/lcs_test.o: CMakeFiles/tests.dir/flags.make
-CMakeFiles/tests.dir/lcs_test.o: ../lcs_test.cpp
-CMakeFiles/tests.dir/lcs_test.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/lcs_test.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/lcs_test.o -MF CMakeFiles/tests.dir/lcs_test.o.d -o CMakeFiles/tests.dir/lcs_test.o -c "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs_test.cpp"
+CMakeFiles/tests.dir/main.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/main.o: ../main.cpp
+CMakeFiles/tests.dir/main.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_3/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/main.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/main.o -MF CMakeFiles/tests.dir/main.o.d -o CMakeFiles/tests.dir/main.o -c "/home/ilya/Рабочий стол/algoritm/lab_3/first/main.cpp"
 
-CMakeFiles/tests.dir/lcs_test.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/lcs_test.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs_test.cpp" > CMakeFiles/tests.dir/lcs_test.i
+CMakeFiles/tests.dir/main.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/main.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_3/first/main.cpp" > CMakeFiles/tests.dir/main.i
 
-CMakeFiles/tests.dir/lcs_test.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/lcs_test.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_3/first/lcs_test.cpp" -o CMakeFiles/tests.dir/lcs_test.s
+CMakeFiles/tests.dir/main.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/main.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_3/first/main.cpp" -o CMakeFiles/tests.dir/main.s
 
 # Object files for target tests
 tests_OBJECTS = \
 "CMakeFiles/tests.dir/lcs.o" \
-"CMakeFiles/tests.dir/lcs_test.o"
+"CMakeFiles/tests.dir/main.o"
 
 # External object files for target tests
 tests_EXTERNAL_OBJECTS =
 
 tests: CMakeFiles/tests.dir/lcs.o
-tests: CMakeFiles/tests.dir/lcs_test.o
+tests: CMakeFiles/tests.dir/main.o
 tests: CMakeFiles/tests.dir/build.make
 tests: /usr/local/lib/libCatch2Main.a
 tests: /usr/local/lib/libCatch2.a
