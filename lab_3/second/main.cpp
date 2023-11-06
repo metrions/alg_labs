@@ -13,7 +13,7 @@ int main() {
     srand(32);
 
     vector<Activity> t = {};
-    for (int i = 0; i<11; i++){
+    for (int i = 0; i<10; i++){
         t.push_back(Activity((int) rand(), (int) rand()));
     }
     auto t_1 = steady_clock::now();

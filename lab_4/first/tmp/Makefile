@@ -145,19 +145,34 @@ graph.s:
 .PHONY : graph.s
 
 # target to build an object file
-graph_test.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph_test.o
-.PHONY : graph_test.o
+shortest_path.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path.o
+.PHONY : shortest_path.o
 
 # target to preprocess a source file
-graph_test.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph_test.i
-.PHONY : graph_test.i
+shortest_path.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path.i
+.PHONY : shortest_path.i
 
 # target to generate assembly for a file
-graph_test.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph_test.s
-.PHONY : graph_test.s
+shortest_path.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path.s
+.PHONY : shortest_path.s
+
+# target to build an object file
+shortest_path_test.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path_test.o
+.PHONY : shortest_path_test.o
+
+# target to preprocess a source file
+shortest_path_test.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path_test.i
+.PHONY : shortest_path_test.i
+
+# target to generate assembly for a file
+shortest_path_test.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path_test.s
+.PHONY : shortest_path_test.s
 
 # Help Target
 help:
@@ -171,9 +186,12 @@ help:
 	@echo "... graph.o"
 	@echo "... graph.i"
 	@echo "... graph.s"
-	@echo "... graph_test.o"
-	@echo "... graph_test.i"
-	@echo "... graph_test.s"
+	@echo "... shortest_path.o"
+	@echo "... shortest_path.i"
+	@echo "... shortest_path.s"
+	@echo "... shortest_path_test.o"
+	@echo "... shortest_path_test.i"
+	@echo "... shortest_path_test.s"
 .PHONY : help
 
 

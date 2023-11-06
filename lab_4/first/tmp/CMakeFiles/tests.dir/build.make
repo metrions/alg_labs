@@ -69,24 +69,38 @@ include CMakeFiles/tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/tests.dir/flags.make
 
-CMakeFiles/tests.dir/graph_test.o: CMakeFiles/tests.dir/flags.make
-CMakeFiles/tests.dir/graph_test.o: ../graph_test.cpp
-CMakeFiles/tests.dir/graph_test.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/graph_test.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/graph_test.o -MF CMakeFiles/tests.dir/graph_test.o.d -o CMakeFiles/tests.dir/graph_test.o -c "/home/ilya/Рабочий стол/algoritm/lab_4/first/graph_test.cpp"
+CMakeFiles/tests.dir/shortest_path.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/shortest_path.o: ../shortest_path.cpp
+CMakeFiles/tests.dir/shortest_path.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/shortest_path.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/shortest_path.o -MF CMakeFiles/tests.dir/shortest_path.o.d -o CMakeFiles/tests.dir/shortest_path.o -c "/home/ilya/Рабочий стол/algoritm/lab_4/first/shortest_path.cpp"
 
-CMakeFiles/tests.dir/graph_test.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/graph_test.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_4/first/graph_test.cpp" > CMakeFiles/tests.dir/graph_test.i
+CMakeFiles/tests.dir/shortest_path.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/shortest_path.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_4/first/shortest_path.cpp" > CMakeFiles/tests.dir/shortest_path.i
 
-CMakeFiles/tests.dir/graph_test.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/graph_test.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_4/first/graph_test.cpp" -o CMakeFiles/tests.dir/graph_test.s
+CMakeFiles/tests.dir/shortest_path.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/shortest_path.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_4/first/shortest_path.cpp" -o CMakeFiles/tests.dir/shortest_path.s
+
+CMakeFiles/tests.dir/shortest_path_test.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/shortest_path_test.o: ../shortest_path_test.cpp
+CMakeFiles/tests.dir/shortest_path_test.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/shortest_path_test.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/shortest_path_test.o -MF CMakeFiles/tests.dir/shortest_path_test.o.d -o CMakeFiles/tests.dir/shortest_path_test.o -c "/home/ilya/Рабочий стол/algoritm/lab_4/first/shortest_path_test.cpp"
+
+CMakeFiles/tests.dir/shortest_path_test.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/shortest_path_test.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_4/first/shortest_path_test.cpp" > CMakeFiles/tests.dir/shortest_path_test.i
+
+CMakeFiles/tests.dir/shortest_path_test.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/shortest_path_test.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_4/first/shortest_path_test.cpp" -o CMakeFiles/tests.dir/shortest_path_test.s
 
 CMakeFiles/tests.dir/graph.o: CMakeFiles/tests.dir/flags.make
 CMakeFiles/tests.dir/graph.o: ../graph.cpp
 CMakeFiles/tests.dir/graph.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/graph.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tests.dir/graph.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/graph.o -MF CMakeFiles/tests.dir/graph.o.d -o CMakeFiles/tests.dir/graph.o -c "/home/ilya/Рабочий стол/algoritm/lab_4/first/graph.cpp"
 
 CMakeFiles/tests.dir/graph.i: cmake_force
@@ -99,19 +113,21 @@ CMakeFiles/tests.dir/graph.s: cmake_force
 
 # Object files for target tests
 tests_OBJECTS = \
-"CMakeFiles/tests.dir/graph_test.o" \
+"CMakeFiles/tests.dir/shortest_path.o" \
+"CMakeFiles/tests.dir/shortest_path_test.o" \
 "CMakeFiles/tests.dir/graph.o"
 
 # External object files for target tests
 tests_EXTERNAL_OBJECTS =
 
-tests: CMakeFiles/tests.dir/graph_test.o
+tests: CMakeFiles/tests.dir/shortest_path.o
+tests: CMakeFiles/tests.dir/shortest_path_test.o
 tests: CMakeFiles/tests.dir/graph.o
 tests: CMakeFiles/tests.dir/build.make
 tests: /usr/local/lib/libCatch2Main.a
 tests: /usr/local/lib/libCatch2.a
 tests: CMakeFiles/tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

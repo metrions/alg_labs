@@ -1,10 +1,9 @@
-#define CATCH_CONFIG_RUNNER
-
-#include "../catch.hpp"
-
+#include <vector>
 #include "shortest_path.h"
 
+using namespace std;
+
 int main(int argc, char* argv[]) {
-    int result = Catch::Session().run(argc, argv);
-    return result;
+   Graph g {}; 
+   shortest_path(g, 0, 1);
 }

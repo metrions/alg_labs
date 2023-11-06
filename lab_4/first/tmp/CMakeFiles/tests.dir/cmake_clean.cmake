@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tests.dir/graph.o"
   "CMakeFiles/tests.dir/graph.o.d"
-  "CMakeFiles/tests.dir/graph_test.o"
-  "CMakeFiles/tests.dir/graph_test.o.d"
+  "CMakeFiles/tests.dir/shortest_path.o"
+  "CMakeFiles/tests.dir/shortest_path.o.d"
+  "CMakeFiles/tests.dir/shortest_path_test.o"
+  "CMakeFiles/tests.dir/shortest_path_test.o.d"
   "tests"
   "tests.pdb"
 )

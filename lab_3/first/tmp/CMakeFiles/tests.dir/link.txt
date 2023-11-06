@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/tests.dir/lcs.o CMakeFiles/tests.dir/main.o -o tests  /usr/local/lib/libCatch2Main.a /usr/local/lib/libCatch2.a 
+/usr/bin/c++ -rdynamic CMakeFiles/tests.dir/lcs_test.o CMakeFiles/tests.dir/lcs.o -o tests  /usr/local/lib/libCatch2Main.a /usr/local/lib/libCatch2.a 
