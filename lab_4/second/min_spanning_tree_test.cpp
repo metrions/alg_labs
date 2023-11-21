@@ -40,31 +40,31 @@ namespace Catch {
     };
 }
 
-// TEST_CASE( "[MST] Empty graph", "[mst]") {
-//     Graph g {};    
-//     CHECK( to_set(min_spanning_tree(g)) == EdgeSet {} );
-// }
+TEST_CASE( "[MST] Empty graph", "[mst]") {
+    Graph g {};    
+    CHECK( to_set(min_spanning_tree(g)) == EdgeSet {} );
+}
 
-// TEST_CASE( "[MST] Single vertex graph", "[mst]") {
-//     Graph g;
-//     g.add_vertex(0);   
-//     CHECK( to_set(min_spanning_tree(g)) == EdgeSet {} );
-// }
+TEST_CASE( "[MST] Single vertex graph", "[mst]") {
+    Graph g;
+    g.add_vertex(0);   
+    CHECK( to_set(min_spanning_tree(g)) == EdgeSet {} );
+}
 
-// TEST_CASE( "[MST] One edge", "[mst]") {
-//     Graph g {{0, 1, 2.5}};
-//     CHECK( to_set(min_spanning_tree(g)) == EdgeSet {{0, 1}} );
-// }
+TEST_CASE( "[MST] One edge", "[mst]") {
+    Graph g {{0, 1, 2.5}};
+    CHECK( to_set(min_spanning_tree(g)) == EdgeSet {{0, 1}} );
+}
 
-// TEST_CASE( "[MST] Two edges", "[mst]" ) {
-//     Graph g {{0, 1, 2.5}, {1, 2, 1.0}};
-//     CHECK( to_set(min_spanning_tree(g)) == EdgeSet {{0, 1}, {1, 2}} );
-// }
+TEST_CASE( "[MST] Two edges", "[mst]" ) {
+    Graph g {{0, 1, 2.5}, {1, 2, 1.0}};
+    CHECK( to_set(min_spanning_tree(g)) == EdgeSet {{0, 1}, {1, 2}} );
+}
 
-// TEST_CASE( "[MST] Three edges", "[mst]" ) {
-//     Graph g {{0, 1, 2.5}, {1, 2, 1.0}, {0, 2, 0.7}};
-//     CHECK( to_set(min_spanning_tree(g)) == EdgeSet {{0, 2}, {1, 2}} );
-// }
+TEST_CASE( "[MST] Three edges", "[mst]" ) {
+    Graph g {{0, 1, 2.5}, {1, 2, 1.0}, {0, 2, 0.7}};
+    CHECK( to_set(min_spanning_tree(g)) == EdgeSet {{0, 2}, {1, 2}} );
+}
 
 TEST_CASE( "[MST] Many edges", "[mst]" ) {
     Graph g {{0, 1, 4.0}, {0, 7, 9.0}, 

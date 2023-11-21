@@ -129,34 +129,68 @@ tests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
+#=============================================================================
+# Target rules for targets named tests2
+
+# Build rule for target.
+tests2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests2
+.PHONY : tests2
+
+# fast build rule for target.
+tests2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/build
+.PHONY : tests2/fast
+
 # target to build an object file
 graph.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/graph.o
 .PHONY : graph.o
 
 # target to preprocess a source file
 graph.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/graph.i
 .PHONY : graph.i
 
 # target to generate assembly for a file
 graph.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/graph.s
 .PHONY : graph.s
+
+# target to build an object file
+main.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/main.o
+.PHONY : main.o
+
+# target to preprocess a source file
+main.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/main.i
+.PHONY : main.i
+
+# target to generate assembly for a file
+main.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/main.s
+.PHONY : main.s
 
 # target to build an object file
 shortest_path.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/shortest_path.o
 .PHONY : shortest_path.o
 
 # target to preprocess a source file
 shortest_path.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/shortest_path.i
 .PHONY : shortest_path.i
 
 # target to generate assembly for a file
 shortest_path.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/shortest_path.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/shortest_path.s
 .PHONY : shortest_path.s
 
 # target to build an object file
@@ -183,9 +217,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tests"
+	@echo "... tests2"
 	@echo "... graph.o"
 	@echo "... graph.i"
 	@echo "... graph.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... shortest_path.o"
 	@echo "... shortest_path.i"
 	@echo "... shortest_path.s"

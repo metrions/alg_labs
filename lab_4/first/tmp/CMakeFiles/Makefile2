@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = "/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp"
 
 # The main recursive "all" target.
 all: CMakeFiles/tests.dir/all
+all: CMakeFiles/tests2.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/tests.dir/clean
+clean: CMakeFiles/tests2.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -99,6 +101,32 @@ tests: CMakeFiles/tests.dir/rule
 CMakeFiles/tests.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/clean
 .PHONY : CMakeFiles/tests.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tests2.dir
+
+# All Build rule for target.
+CMakeFiles/tests2.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" --progress-num=5,6,7,8 "Built target tests2"
+.PHONY : CMakeFiles/tests2.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tests2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tests2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles" 0
+.PHONY : CMakeFiles/tests2.dir/rule
+
+# Convenience name for target.
+tests2: CMakeFiles/tests2.dir/rule
+.PHONY : tests2
+
+# clean rule for target.
+CMakeFiles/tests2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests2.dir/build.make CMakeFiles/tests2.dir/clean
+.PHONY : CMakeFiles/tests2.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

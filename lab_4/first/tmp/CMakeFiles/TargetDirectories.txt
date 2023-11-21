@@ -1,3 +1,4 @@
 /home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles/tests.dir
+/home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles/tests2.dir
 /home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles/edit_cache.dir
 /home/ilya/Рабочий стол/algoritm/lab_4/first/tmp/CMakeFiles/rebuild_cache.dir

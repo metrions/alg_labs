@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/tests2.dir/main.o CMakeFiles/tests2.dir/min_spanning_tree.o CMakeFiles/tests2.dir/graph.o -o tests2 
