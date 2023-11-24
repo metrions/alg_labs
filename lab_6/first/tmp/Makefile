@@ -145,21 +145,6 @@ graph.s:
 .PHONY : graph.s
 
 # target to build an object file
-main.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.o
-.PHONY : main.o
-
-# target to preprocess a source file
-main.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.i
-.PHONY : main.i
-
-# target to generate assembly for a file
-main.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/main.s
-.PHONY : main.s
-
-# target to build an object file
 tsp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp.o
 .PHONY : tsp.o
@@ -174,6 +159,21 @@ tsp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp.s
 .PHONY : tsp.s
 
+# target to build an object file
+tsp_test.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_test.o
+.PHONY : tsp_test.o
+
+# target to preprocess a source file
+tsp_test.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_test.i
+.PHONY : tsp_test.i
+
+# target to generate assembly for a file
+tsp_test.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_test.s
+.PHONY : tsp_test.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +186,12 @@ help:
 	@echo "... graph.o"
 	@echo "... graph.i"
 	@echo "... graph.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... tsp.o"
 	@echo "... tsp.i"
 	@echo "... tsp.s"
+	@echo "... tsp_test.o"
+	@echo "... tsp_test.i"
+	@echo "... tsp_test.s"
 .PHONY : help
 
 

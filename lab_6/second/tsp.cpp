@@ -270,7 +270,7 @@ vector<int> best(const Graph &graph, vector<vector<int>> Gen){
 }
 
 int MaxIt = 20;
-double Pm = 0.2;
+double Pm = 0.5;
 
 vector<int> tsp(const Graph &graph) {
     vector<int> ver = graph.get_vertices();

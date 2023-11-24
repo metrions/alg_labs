@@ -139,7 +139,7 @@ vector<int> tsp(const Graph &graph) {
     int k;
     double min = 99999999;
     vector<int> minv = {};
-    for (int i=0; i<1; i++){
+    for (int i=0; i<100; i++){
         t = {};
         temp = {};
         k = CurrentPath[(int(rand()))%(int (CurrentPath.size()))];
