@@ -43,7 +43,7 @@ void printans(vector<vector<int>> &ans){
 //     vector<vector<int>> answer = {};
 // }
 
-double Length(const Graph &graph, const vector<int> &path){
+double Length(const Graph &graph, vector<int> &path){
     double l = 0;
     for (int i = 0; i<int(path.size())-1; i++){
         l += graph.edge_weight(path[i], path[i+1]);
@@ -52,7 +52,7 @@ double Length(const Graph &graph, const vector<int> &path){
     return l;
 }
 
-double LowerBound(const Graph &graph, const vector<int> &Visited){
+double LowerBound(const Graph &graph, vector<int> &Visited){
     double t = 0;
     vector<int> q = graph.get_vertices();
     vector<pair<int, double>> temp = {};
@@ -81,12 +81,12 @@ double LowerBound(const Graph &graph, const vector<int> &Visited){
     return t/2;
 }
 
-vector<int> MinPath(const Graph &graph, const vector<int> &p1, const vector<int> &p2){
+vector<int> MinPath(const Graph &graph, vector<int> &p1, vector<int> &p2){
     if (Length(graph, p1) > Length(graph, p2)) return p2;
     return p1;
 }
 
-vector<int> BnB(const Graph &graph, const vector<int> &Visited, vector<int> &BestPath){
+vector<int> BnB(const Graph &graph, vector<int> &Visited, vector<int> &BestPath){
     if (Visited.size() >= graph.get_vertices().size()){
         return MinPath(graph, Visited, BestPath);
     }
@@ -124,13 +124,13 @@ vector<int> tsp(const Graph &graph) {
         for (auto t=temp.begin(); t!=temp.end(); t++){
             if (!(have_visited.find((*t).first) != have_visited.end())){
                 have_visited.insert((*t).first);
-                cout << (*t).first << " ";
+                // cout << (*t).first << " ";
                 Path.push_back((*t).first);
                 Current = (*t).first;
                 break;
             }
         }
-        cout << endl;
+        // cout << endl;
     }
     return Path;
 }

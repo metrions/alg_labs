@@ -39,10 +39,10 @@ double Length(const Graph &graph, const vector<int> &path){
 }
 
 vector<int> Transform(vector <int> &Path, int a, int b, int c, int d){
-    vector<int> n = {a};
+    vector<int> n = {a}; //добавление вершины a
     bool ch = false;
     // printv(Path);
-    for (int i=Path.size(); i>=0; i--){
+    for (int i=Path.size(); i>=0; i--){ //добавление от B до C в обратном порядке(включительно)
         if (ch){
             n.push_back(Path[i]);
             if (Path[i] == b){
@@ -57,7 +57,7 @@ vector<int> Transform(vector <int> &Path, int a, int b, int c, int d){
             }
         }
     }
-    for (int i=0; i<Path.size(); i++){
+    for (int i=0; i<Path.size(); i++){  //добвление вершин от D до A
         if (ch){
             n.push_back(Path[i]);
             if (Path[i] == a){
@@ -75,17 +75,17 @@ vector<int> Transform(vector <int> &Path, int a, int b, int c, int d){
     return n;
 }
 
-vector<int> TwoOptImprove(const Graph &graph, vector<int> &Path){
+vector<int> TwoOptImprove(const Graph &graph, vector <int> &Path){
     vector<int> h = graph.get_vertices();
     vector<int> temp = {};
     vector<pair<int, int>> ver ={};
     set<int> bul;
     //создания вектора всех ребер
-    for (auto i=h.begin(); i!=h.end(); i++){
-        temp = graph.get_adjacent_vertices(*i);
-        bul.insert(*i);
+    for (auto i=h.begin(); i!=h.end(); i++){    //проход по всем вершинам графа
+        temp = graph.get_adjacent_vertices(*i); //смежные вершины
+        bul.insert(*i); //bul - для того чтобы ребра не повторялись
         for (auto j=temp.begin(); j!=temp.end(); j++){
-            if (bul.find(*j) == bul.end())  ver.push_back(make_pair(*i, *j));
+            if (bul.find(*j) == bul.end())  ver.push_back(make_pair(*i, *j));   //добавление пары 1вершина-2вершина
         }
     }
     double OldWeight = 999999999;
@@ -100,21 +100,22 @@ vector<int> TwoOptImprove(const Graph &graph, vector<int> &Path){
             bul.insert((*i).second);
             bul.insert((*j).first);
             bul.insert((*j).second);
-            if (bul.size() == 4){
+            if (bul.size() == 4){   //проверка на то что ребра несмежные так как если вершин различных <4 тогда ребра смежные
                 OldWeight = 999999999;
-                NewWeight = 99999999;
+                NewWeight = 999999999;
                 if (graph.has_edge((*i).first, (*i).second) && graph.has_edge((*j).first, (*j).second) &&
-                    graph.has_edge((*i).first, (*j).first) && graph.has_edge((*i).second, (*j).second)){
+                    graph.has_edge((*i).first, (*j).first) && graph.has_edge((*i).second, (*j).second)){    //проверка нахождение ребра в графе
+
                     OldWeight = graph.edge_weight((*i).first, (*i).second) + graph.edge_weight((*j).first, (*j).second);
-                    // }
-                    // if (graph.has_edge((*i).first, (*j).first) && graph.has_edge((*i).second, (*j).second)){
                     NewWeight = graph.edge_weight((*i).first, (*j).first) + graph.edge_weight((*i).second, (*j).second);
                 }
-                if (NewWeight < OldWeight){
+                if (NewWeight < OldWeight){ //трансформация графа в случае когда новый путь меньше предыдущего
                     temp_path =Transform(Path, (*i).first, (*i).second, (*j).first, (*j).second);
                     tmp = {};
                     tmp.insert(temp_path.begin(), temp_path.end());
-                    if (temp_path.size() == Path.size() && Path.size() == tmp.size()){
+
+                    //проверка на то что вершины не повторяются и в путь входят все точки
+                    if (temp_path.size() == h.size() && h.size() == tmp.size()){
                         return Transform(Path, (*i).first, (*i).second, (*j).first, (*j).second);
                     }
                 }
@@ -269,17 +270,19 @@ vector<int> best(const Graph &graph, vector<vector<int>> Gen){
     return temp;
 }
 
-int MaxIt = 20;
-double Pm = 0.5;
 
 vector<int> tsp(const Graph &graph) {
     vector<int> ver = graph.get_vertices();
     if (ver.size() < 2) return {};
-    vector<vector<int>> start_gen = new_gen(graph, ver);
+    vector<vector<int>> start_gen = new_gen(graph, ver);    //формирование нового гена или путя
     int it = 0;
-    int P = (ver.size() < 4) ? 1 : ver.size() * 2;
     double weight_gen = 0;
-    int N = int(ver.size());
+
+    int MaxIt = 10;
+    double Pm = 0.3;
+    int N = 5;
+    int P = 5;
+
     vector<vector<int>> N_p = SUS(graph, start_gen, N);
     set<vector<int>> sons = {};
     vector<int> Parent1 = {};
@@ -289,30 +292,28 @@ vector<int> tsp(const Graph &graph) {
     vector<int> temp = {};
     while (it < MaxIt){
         weight_gen = all_weight(graph, start_gen);
-        // cout << "ASDASDASD";
         N_p = SUS(graph, start_gen, N);
         while (sons.size() < P){
-            // cout << sons.size() << endl;
             p1 = rand() % int(N_p.size());
             p2 = rand() % int(N_p.size());
             if (p1 != p2) sons.insert(CrossovER(N_p[p1], N_p[p2]));
         }
-        // cout << sons.size() << endl;
         int m = 0;
-        for (auto i : sons){
+        start_gen = {};
+        for (auto i=sons.begin(); i!=sons.end(); i++){
+            temp = *i;
             if (Rand(0, 1) < Pm){
-                temp = {};
-                // std::copy((*i).begin(), (*i).end(), temp.begin());
-                TwoOptImprove(graph, i);
-                // printv(i);
+                start_gen.push_back(TwoOptImprove(graph, temp));
+            }
+            else{
+                start_gen.push_back(temp);
             }
         }
-        start_gen = {};
-        for (auto i : sons){
-            start_gen.push_back(i);
-        }
-        // std::copy(sons.begin(), sons.end(), start_gen.begin());
-        // for (auto i : start_gen) printv(i);
+        // for (auto i : sons){
+        //     // printv(i);
+        //     start_gen.push_back(i);
+        // }
+        // printv(best(graph, start_gen));
         it++;
     }
 

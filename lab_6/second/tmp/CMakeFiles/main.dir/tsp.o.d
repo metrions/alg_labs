@@ -1,8 +1,8 @@
-CMakeFiles/tests.dir/main.o: \
- /home/ilya/Рабочий\ стол/algoritm/lab_6/first/main.cpp \
+CMakeFiles/main.dir/tsp.o: \
+ /home/ilya/Рабочий\ стол/algoritm/lab_6/second/tsp.cpp \
  /usr/include/stdc-predef.h \
- /home/ilya/Рабочий\ стол/algoritm/lab_6/first/tsp.h \
- /home/ilya/Рабочий\ стол/algoritm/lab_6/first/graph.h \
+ /home/ilya/Рабочий\ стол/algoritm/lab_6/second/tsp.h \
+ /home/ilya/Рабочий\ стол/algoritm/lab_6/second/graph.h \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -55,7 +55,9 @@ CMakeFiles/tests.dir/main.o: \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/functional_hash.h \
  /usr/include/c++/11/bits/hash_bytes.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/iostream \
+ /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h /usr/include/c++/11/iostream \
  /usr/include/c++/11/ostream /usr/include/c++/11/ios \
  /usr/include/c++/11/iosfwd /usr/include/c++/11/bits/stringfwd.h \
  /usr/include/c++/11/bits/postypes.h /usr/include/c++/11/cwchar \
@@ -160,4 +162,7 @@ CMakeFiles/tests.dir/main.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/bits/list.tcc

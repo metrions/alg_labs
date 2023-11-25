@@ -1,3 +1,8 @@
-/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/tests.dir
+/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/main.dir
+/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/mainfast.dir
+/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/mainhard.dir
+/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/test1.dir
+/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/test2.dir
+/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/test3.dir
 /home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/edit_cache.dir
 /home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles/rebuild_cache.dir

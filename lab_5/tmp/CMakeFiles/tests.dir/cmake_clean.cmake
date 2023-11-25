@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/tests.dir/graph.o"
-  "CMakeFiles/tests.dir/graph.o.d"
-  "CMakeFiles/tests.dir/tsp_hard.o"
-  "CMakeFiles/tests.dir/tsp_hard.o.d"
-  "CMakeFiles/tests.dir/tsp_test.o"
-  "CMakeFiles/tests.dir/tsp_test.o.d"
+  "CMakeFiles/tests.dir/graph.cpp.o"
+  "CMakeFiles/tests.dir/graph.cpp.o.d"
+  "CMakeFiles/tests.dir/tsp.cpp.o"
+  "CMakeFiles/tests.dir/tsp.cpp.o.d"
+  "CMakeFiles/tests.dir/tsp_test.cpp.o"
+  "CMakeFiles/tests.dir/tsp_test.cpp.o.d"
   "tests"
   "tests.pdb"
 )

@@ -4,7 +4,6 @@
 
 #include "tsp_hard.h"
 
-#include <algorithm>
 
 using namespace std;
 

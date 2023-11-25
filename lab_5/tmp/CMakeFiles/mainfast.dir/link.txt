@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mainfast.dir/main_fast.cpp.o CMakeFiles/mainfast.dir/tsp_fast.cpp.o CMakeFiles/mainfast.dir/graph.cpp.o -o mainfast 

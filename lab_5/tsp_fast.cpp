@@ -43,7 +43,7 @@ void printans(vector<vector<int>> &ans){
 //     vector<vector<int>> answer = {};
 // }
 
-double Length(const Graph &graph, const vector<int> &path){
+double Length(const Graph &graph, vector<int> &path){
     double l = 0;
     for (int i = 0; i<int(path.size())-1; i++){
         l += graph.edge_weight(path[i], path[i+1]);
@@ -52,20 +52,20 @@ double Length(const Graph &graph, const vector<int> &path){
     return l;
 }
 
-double LowerBound(const Graph &graph, const vector<int> &Visited){
+double LowerBound(const Graph &graph, vector<int> &Visited){    //среднее значение ребер в Visited и оставшихся
     double t = 0;
     vector<int> q = graph.get_vertices();
     vector<pair<int, double>> temp = {};
     set<int> mas(Visited.begin(), Visited.end());
-    for (auto i = q.begin(); i!=q.end(); i++){
-        temp = graph.get_adjacent_edges(*i);
+    for (auto i = q.begin(); i!=q.end(); i++){  //для каждой вершины
+        temp = graph.get_adjacent_edges(*i);    //2 смежных ребра для вершины
         struct
         {
             bool operator()(pair<int, double> &a, pair<int, double> &b) const { return a.second < b.second; }
         }
         customLess;
-        std::sort(temp.begin(), temp.end(), customLess);
-        if (mas.find((*i)) != mas.end()){
+        std::sort(temp.begin(), temp.end(), customLess);    //сортировка по весу
+        if (mas.find((*i)) != mas.end()){   //добавлена ли уже вершина
             if (temp.size() >= 1) t = t + temp[0].second;
         }
         else{
@@ -81,26 +81,26 @@ double LowerBound(const Graph &graph, const vector<int> &Visited){
     return t/2;
 }
 
-vector<int> MinPath(const Graph &graph, const vector<int> &p1, const vector<int> &p2){
+vector<int> MinPath(const Graph &graph, vector<int> &p1, vector<int> &p2){
     if (Length(graph, p1) > Length(graph, p2)) return p2;
     return p1;
 }
 
-vector<int> BnB(const Graph &graph, const vector<int> &Visited, vector<int> &BestPath){
-    if (Visited.size() >= graph.get_vertices().size()){
-        return MinPath(graph, Visited, BestPath);
+vector<int> BnB(const Graph &graph, vector<int> &Visited, vector<int> &BestPath){
+    if (Visited.size() >= graph.get_vertices().size()){ //Если посещенные вершины содержат все вершины графа graph
+        return MinPath(graph, Visited, BestPath);   //минимальный путь между 2 путями
     }
     vector<int> ver = graph.get_vertices();
     vector<int> VNext = {};
     vector<int> Path = {};
-    set<int> vist(Visited.begin(), Visited.end());
+    set<int> vist(Visited.begin(), Visited.end());  //вершины Visited
     for (auto i=ver.begin(); i!=ver.end(); i++){
-        if (vist.find(*i)==vist.end()){
+        if (vist.find(*i)==vist.end()){ //Для каждой вершины i графа G не из Visited
             VNext = Visited;
             VNext.push_back((*i));
-            if (LowerBound(graph, VNext) < Length(graph, BestPath)){
-                Path = BnB(graph, VNext, BestPath);
-                BestPath = MinPath(graph, BestPath, Path);
+            if (LowerBound(graph, VNext) < Length(graph, BestPath)){    //если средний путь меньше нашего тогда
+                Path = BnB(graph, VNext, BestPath);     //повторить цикл
+                BestPath = MinPath(graph, BestPath, Path);  //выбрать лучшее с предыдущего и нового
             }
         } 
     }
@@ -109,8 +109,8 @@ vector<int> BnB(const Graph &graph, const vector<int> &Visited, vector<int> &Bes
 
 vector<int> tsp(const Graph &graph) {
     if (graph.get_vertices().size() < 2) return {};
-    vector<int> BestPath = graph.get_vertices();
-    vector<int> Visited = {0};
+    vector<int> BestPath = graph.get_vertices(); //некоторое эвристическое решение
+    vector<int> Visited = {0};  //список пройденных вершин
     // cout << endl << Length(graph, BnB(graph, Visited, BestPath)) << endl << endl;
-    return BnB(graph, Visited, BestPath);
+    return BnB(graph, Visited, BestPath);   
 }

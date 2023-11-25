@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp" "CMakeFiles/tests.dir/graph.o" "gcc" "CMakeFiles/tests.dir/graph.o.d"
-  "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_hard.cpp" "CMakeFiles/tests.dir/tsp_hard.o" "gcc" "CMakeFiles/tests.dir/tsp_hard.o.d"
-  "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp" "CMakeFiles/tests.dir/tsp_test.o" "gcc" "CMakeFiles/tests.dir/tsp_test.o.d"
+  "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp" "CMakeFiles/tests.dir/graph.cpp.o" "gcc" "CMakeFiles/tests.dir/graph.cpp.o.d"
+  "/home/ilya/Рабочий стол/algoritm/lab_5/tsp.cpp" "CMakeFiles/tests.dir/tsp.cpp.o" "gcc" "CMakeFiles/tests.dir/tsp.cpp.o.d"
+  "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp" "CMakeFiles/tests.dir/tsp_test.cpp.o" "gcc" "CMakeFiles/tests.dir/tsp_test.cpp.o.d"
   )
 
 # Targets to which this target links.

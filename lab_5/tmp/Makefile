@@ -117,62 +117,304 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tests
+# Target rules for targets named main
 
 # Build rule for target.
-tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
-.PHONY : tests
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-tests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-.PHONY : tests/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
-# target to build an object file
-graph.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph.o
+#=============================================================================
+# Target rules for targets named mainfast
+
+# Build rule for target.
+mainfast: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mainfast
+.PHONY : mainfast
+
+# fast build rule for target.
+mainfast/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/build
+.PHONY : mainfast/fast
+
+#=============================================================================
+# Target rules for targets named mainhard
+
+# Build rule for target.
+mainhard: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mainhard
+.PHONY : mainhard
+
+# fast build rule for target.
+mainhard/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/build
+.PHONY : mainhard/fast
+
+#=============================================================================
+# Target rules for targets named test1
+
+# Build rule for target.
+test1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test1
+.PHONY : test1
+
+# fast build rule for target.
+test1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
+.PHONY : test1/fast
+
+#=============================================================================
+# Target rules for targets named test2
+
+# Build rule for target.
+test2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test2
+.PHONY : test2
+
+# fast build rule for target.
+test2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/build
+.PHONY : test2/fast
+
+#=============================================================================
+# Target rules for targets named test3
+
+# Build rule for target.
+test3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test3
+.PHONY : test3
+
+# fast build rule for target.
+test3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/build
+.PHONY : test3/fast
+
+graph.o: graph.cpp.o
 .PHONY : graph.o
 
-# target to preprocess a source file
-graph.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph.i
+# target to build an object file
+graph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/graph.cpp.o
+.PHONY : graph.cpp.o
+
+graph.i: graph.cpp.i
 .PHONY : graph.i
 
-# target to generate assembly for a file
-graph.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/graph.s
+# target to preprocess a source file
+graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/graph.cpp.i
+.PHONY : graph.cpp.i
+
+graph.s: graph.cpp.s
 .PHONY : graph.s
 
+# target to generate assembly for a file
+graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/graph.cpp.s
+.PHONY : graph.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
 # target to build an object file
-tsp_hard.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_hard.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+main_fast.o: main_fast.cpp.o
+.PHONY : main_fast.o
+
+# target to build an object file
+main_fast.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/main_fast.cpp.o
+.PHONY : main_fast.cpp.o
+
+main_fast.i: main_fast.cpp.i
+.PHONY : main_fast.i
+
+# target to preprocess a source file
+main_fast.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/main_fast.cpp.i
+.PHONY : main_fast.cpp.i
+
+main_fast.s: main_fast.cpp.s
+.PHONY : main_fast.s
+
+# target to generate assembly for a file
+main_fast.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/main_fast.cpp.s
+.PHONY : main_fast.cpp.s
+
+main_hard.o: main_hard.cpp.o
+.PHONY : main_hard.o
+
+# target to build an object file
+main_hard.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/main_hard.cpp.o
+.PHONY : main_hard.cpp.o
+
+main_hard.i: main_hard.cpp.i
+.PHONY : main_hard.i
+
+# target to preprocess a source file
+main_hard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/main_hard.cpp.i
+.PHONY : main_hard.cpp.i
+
+main_hard.s: main_hard.cpp.s
+.PHONY : main_hard.s
+
+# target to generate assembly for a file
+main_hard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/main_hard.cpp.s
+.PHONY : main_hard.cpp.s
+
+tsp.o: tsp.cpp.o
+.PHONY : tsp.o
+
+# target to build an object file
+tsp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tsp.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/tsp.cpp.o
+.PHONY : tsp.cpp.o
+
+tsp.i: tsp.cpp.i
+.PHONY : tsp.i
+
+# target to preprocess a source file
+tsp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tsp.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/tsp.cpp.i
+.PHONY : tsp.cpp.i
+
+tsp.s: tsp.cpp.s
+.PHONY : tsp.s
+
+# target to generate assembly for a file
+tsp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tsp.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/tsp.cpp.s
+.PHONY : tsp.cpp.s
+
+tsp_fast.o: tsp_fast.cpp.o
+.PHONY : tsp_fast.o
+
+# target to build an object file
+tsp_fast.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/tsp_fast.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/tsp_fast.cpp.o
+.PHONY : tsp_fast.cpp.o
+
+tsp_fast.i: tsp_fast.cpp.i
+.PHONY : tsp_fast.i
+
+# target to preprocess a source file
+tsp_fast.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/tsp_fast.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/tsp_fast.cpp.i
+.PHONY : tsp_fast.cpp.i
+
+tsp_fast.s: tsp_fast.cpp.s
+.PHONY : tsp_fast.s
+
+# target to generate assembly for a file
+tsp_fast.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainfast.dir/build.make CMakeFiles/mainfast.dir/tsp_fast.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/tsp_fast.cpp.s
+.PHONY : tsp_fast.cpp.s
+
+tsp_hard.o: tsp_hard.cpp.o
 .PHONY : tsp_hard.o
 
-# target to preprocess a source file
-tsp_hard.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_hard.i
+# target to build an object file
+tsp_hard.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/tsp_hard.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/tsp_hard.cpp.o
+.PHONY : tsp_hard.cpp.o
+
+tsp_hard.i: tsp_hard.cpp.i
 .PHONY : tsp_hard.i
 
-# target to generate assembly for a file
-tsp_hard.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_hard.s
+# target to preprocess a source file
+tsp_hard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/tsp_hard.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/tsp_hard.cpp.i
+.PHONY : tsp_hard.cpp.i
+
+tsp_hard.s: tsp_hard.cpp.s
 .PHONY : tsp_hard.s
 
-# target to build an object file
-tsp_test.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_test.o
+# target to generate assembly for a file
+tsp_hard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mainhard.dir/build.make CMakeFiles/mainhard.dir/tsp_hard.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/tsp_hard.cpp.s
+.PHONY : tsp_hard.cpp.s
+
+tsp_test.o: tsp_test.cpp.o
 .PHONY : tsp_test.o
 
-# target to preprocess a source file
-tsp_test.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_test.i
+# target to build an object file
+tsp_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/tsp_test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/tsp_test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/tsp_test.cpp.o
+.PHONY : tsp_test.cpp.o
+
+tsp_test.i: tsp_test.cpp.i
 .PHONY : tsp_test.i
 
-# target to generate assembly for a file
-tsp_test.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/tsp_test.s
+# target to preprocess a source file
+tsp_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/tsp_test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/tsp_test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/tsp_test.cpp.i
+.PHONY : tsp_test.cpp.i
+
+tsp_test.s: tsp_test.cpp.s
 .PHONY : tsp_test.s
+
+# target to generate assembly for a file
+tsp_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/tsp_test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/tsp_test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test3.dir/build.make CMakeFiles/test3.dir/tsp_test.cpp.s
+.PHONY : tsp_test.cpp.s
 
 # Help Target
 help:
@@ -182,10 +424,30 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... tests"
+	@echo "... main"
+	@echo "... mainfast"
+	@echo "... mainhard"
+	@echo "... test1"
+	@echo "... test2"
+	@echo "... test3"
 	@echo "... graph.o"
 	@echo "... graph.i"
 	@echo "... graph.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... main_fast.o"
+	@echo "... main_fast.i"
+	@echo "... main_fast.s"
+	@echo "... main_hard.o"
+	@echo "... main_hard.i"
+	@echo "... main_hard.s"
+	@echo "... tsp.o"
+	@echo "... tsp.i"
+	@echo "... tsp.s"
+	@echo "... tsp_fast.o"
+	@echo "... tsp_fast.i"
+	@echo "... tsp_fast.s"
 	@echo "... tsp_hard.o"
 	@echo "... tsp_hard.i"
 	@echo "... tsp_hard.s"

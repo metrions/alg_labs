@@ -69,60 +69,60 @@ include CMakeFiles/tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/tests.dir/flags.make
 
-CMakeFiles/tests.dir/tsp_test.o: CMakeFiles/tests.dir/flags.make
-CMakeFiles/tests.dir/tsp_test.o: ../tsp_test.cpp
-CMakeFiles/tests.dir/tsp_test.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/tsp_test.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/tsp_test.o -MF CMakeFiles/tests.dir/tsp_test.o.d -o CMakeFiles/tests.dir/tsp_test.o -c "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp"
+CMakeFiles/tests.dir/tsp.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/tsp.cpp.o: ../tsp.cpp
+CMakeFiles/tests.dir/tsp.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/tsp.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/tsp.cpp.o -MF CMakeFiles/tests.dir/tsp.cpp.o.d -o CMakeFiles/tests.dir/tsp.cpp.o -c "/home/ilya/Рабочий стол/algoritm/lab_5/tsp.cpp"
 
-CMakeFiles/tests.dir/tsp_test.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/tsp_test.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp" > CMakeFiles/tests.dir/tsp_test.i
+CMakeFiles/tests.dir/tsp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/tsp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_5/tsp.cpp" > CMakeFiles/tests.dir/tsp.cpp.i
 
-CMakeFiles/tests.dir/tsp_test.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/tsp_test.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp" -o CMakeFiles/tests.dir/tsp_test.s
+CMakeFiles/tests.dir/tsp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/tsp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_5/tsp.cpp" -o CMakeFiles/tests.dir/tsp.cpp.s
 
-CMakeFiles/tests.dir/tsp_hard.o: CMakeFiles/tests.dir/flags.make
-CMakeFiles/tests.dir/tsp_hard.o: ../tsp_hard.cpp
-CMakeFiles/tests.dir/tsp_hard.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/tsp_hard.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/tsp_hard.o -MF CMakeFiles/tests.dir/tsp_hard.o.d -o CMakeFiles/tests.dir/tsp_hard.o -c "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_hard.cpp"
+CMakeFiles/tests.dir/tsp_test.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/tsp_test.cpp.o: ../tsp_test.cpp
+CMakeFiles/tests.dir/tsp_test.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/tsp_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/tsp_test.cpp.o -MF CMakeFiles/tests.dir/tsp_test.cpp.o.d -o CMakeFiles/tests.dir/tsp_test.cpp.o -c "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp"
 
-CMakeFiles/tests.dir/tsp_hard.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/tsp_hard.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_hard.cpp" > CMakeFiles/tests.dir/tsp_hard.i
+CMakeFiles/tests.dir/tsp_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/tsp_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp" > CMakeFiles/tests.dir/tsp_test.cpp.i
 
-CMakeFiles/tests.dir/tsp_hard.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/tsp_hard.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_hard.cpp" -o CMakeFiles/tests.dir/tsp_hard.s
+CMakeFiles/tests.dir/tsp_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/tsp_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_5/tsp_test.cpp" -o CMakeFiles/tests.dir/tsp_test.cpp.s
 
-CMakeFiles/tests.dir/graph.o: CMakeFiles/tests.dir/flags.make
-CMakeFiles/tests.dir/graph.o: ../graph.cpp
-CMakeFiles/tests.dir/graph.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tests.dir/graph.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/graph.o -MF CMakeFiles/tests.dir/graph.o.d -o CMakeFiles/tests.dir/graph.o -c "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp"
+CMakeFiles/tests.dir/graph.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/graph.cpp.o: ../graph.cpp
+CMakeFiles/tests.dir/graph.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ilya/Рабочий стол/algoritm/lab_5/tmp/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tests.dir/graph.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/graph.cpp.o -MF CMakeFiles/tests.dir/graph.cpp.o.d -o CMakeFiles/tests.dir/graph.cpp.o -c "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp"
 
-CMakeFiles/tests.dir/graph.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/graph.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp" > CMakeFiles/tests.dir/graph.i
+CMakeFiles/tests.dir/graph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/graph.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp" > CMakeFiles/tests.dir/graph.cpp.i
 
-CMakeFiles/tests.dir/graph.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/graph.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp" -o CMakeFiles/tests.dir/graph.s
+CMakeFiles/tests.dir/graph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/graph.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/algoritm/lab_5/graph.cpp" -o CMakeFiles/tests.dir/graph.cpp.s
 
 # Object files for target tests
 tests_OBJECTS = \
-"CMakeFiles/tests.dir/tsp_test.o" \
-"CMakeFiles/tests.dir/tsp_hard.o" \
-"CMakeFiles/tests.dir/graph.o"
+"CMakeFiles/tests.dir/tsp.cpp.o" \
+"CMakeFiles/tests.dir/tsp_test.cpp.o" \
+"CMakeFiles/tests.dir/graph.cpp.o"
 
 # External object files for target tests
 tests_EXTERNAL_OBJECTS =
 
-tests: CMakeFiles/tests.dir/tsp_test.o
-tests: CMakeFiles/tests.dir/tsp_hard.o
-tests: CMakeFiles/tests.dir/graph.o
+tests: CMakeFiles/tests.dir/tsp.cpp.o
+tests: CMakeFiles/tests.dir/tsp_test.cpp.o
+tests: CMakeFiles/tests.dir/graph.cpp.o
 tests: CMakeFiles/tests.dir/build.make
 tests: /usr/local/lib/libCatch2Main.a
 tests: /usr/local/lib/libCatch2.a
