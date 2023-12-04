@@ -139,7 +139,7 @@ vector<int> tsp(const Graph &graph) {
     int k;
     double min = 99999999;
     vector<int> minv = {};
-    for (int i=0; i<40; i++){                       //несколько путей для нахождения локальных экстремумов
+    for (int i=0; i<1; i++){                       //несколько путей для нахождения локальных экстремумов
         t = {};
         temp = {};
         k = CurrentPath[(int(rand()))%(int (CurrentPath.size()))];  //начальная точка

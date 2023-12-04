@@ -280,8 +280,8 @@ vector<int> tsp(const Graph &graph) {
 
     int MaxIt = 10;
     double Pm = 0.3;
-    int N = 5;
-    int P = 5;
+    int N = 10;
+    int P = 10;
 
     vector<vector<int>> N_p = SUS(graph, start_gen, N);
     set<vector<int>> sons = {};
