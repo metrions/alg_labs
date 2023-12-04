@@ -12,6 +12,8 @@ mas_ver = []
 mas_lines = []
 start = []
 end = []
+edges = []
+vertices = set()
 
 def cross(a, b):
     x_a_1 = a[0]        #первая точка у первой прямой x
@@ -80,11 +82,11 @@ def cross_all(a, b):
     for i in range(len(mas_lines)):
         test = (a[0], a[1], b[0], b[1])
         # print(str(mas_lines[i][0]) + " " + str(a[0]))
-        print(mas_lines[i])
-        print(test)
+        # print(mas_lines[i])
+        # print(test)
         if cross(test, mas_lines[i]) == True:
             cd += 1
-        print(cross(test, mas_lines[i]))
+        # print(cross(test, mas_lines[i]))
     if (cd == 0) : return True
     return False
 
@@ -95,6 +97,67 @@ def draw_edges():
             if (cross_all(mas_ver[i], mas_ver[j]) == True):
                 if (mas_rect.count({mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1]}) == 0):
                     draw_line(mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1])
+                    edges.append([[mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1]], ((mas_ver[j][0] - mas_ver[i][0])**2 + (mas_ver[j][1] - mas_ver[i][1])**2)**(0.5)])
+                    vertices.add((mas_ver[i][0], mas_ver[i][1]))
+                    vertices.add((mas_ver[j][0], mas_ver[j][1]))
+    # print(Dijkstra(edges, vertices, start, end))
+    draw_path(Dijkstra(edges, vertices, start, end))
+
+def get_min(Dist, sp):
+    mi = 99999999999
+    t = -1
+    for i in sp:
+        if Dist[i] < mi:
+            mi = Dist[i]
+            t = i
+    return t
+
+def draw_path(tq):
+    tq.append((start[0], start[1]))
+    for i in range(len(tq)-1, 0, -1):
+        print("AAAA")
+        canvas.create_line(tq[i][0], tq[i][1], tq[i-1][0], tq[i-1][1], fill="green")
+
+def BuildPath(Par, s, e):
+    tq = []
+    while(Par[(e[0], e[1])] != (s[0], s[1])):
+        tq.append((e[0], e[1]))
+        e = Par[(e[0], e[1])]
+    tq.append((e[0], e[1]))
+    return tq
+
+def Dijkstra(graph, ver, st, en):
+    Distance = {}
+    for i in ver:
+        # print(i)
+        Distance[(i[0], i[1])] = 9999999999
+    Distance[(st[0], st[1])] = 0
+    Q = ver
+    temp = 0
+    Parent = {}
+    while (len(Q) != 0):
+        temp = get_min(Distance, ver)
+        Q.remove(temp)
+        if (temp[0] == en[0] and temp[1] == en[1]):
+            return BuildPath(Parent, st, en)
+        s = get_all_edges(graph, temp)
+        # print(s)
+        for v in s:
+            if Distance[(v[0][0], v[0][1])] > Distance[(temp[0], temp[1])] + v[1]:
+                Distance[(v[0][0], v[0][1])] = Distance[(temp[0], temp[1])] + v[1]
+                Parent[(v[0][0], v[0][1])] = temp
+    
+
+def get_all_edges(graph, a):
+    t = []
+    for i in graph:
+        if (i[0][0] == a[0] and i[0][1] == a[1]):
+            t.append([[i[0][2], i[0][3]], i[1]])
+        elif (i[0][2] == a[0] and i[0][3] == a[1]):
+            t.append([[i[0][0], i[0][1]], i[1]])
+    return t
+
+
 
 
 def draw_line(a, b, c, d):
@@ -127,11 +190,13 @@ def click_button(event):
         mas.clear()
 
 def add_conclusion_vertex(event):
-    canvas.create_oval(event.x-3,event.y-3, event.x+3, event.y+3, fill="purple")
-    if len(start) == 2:
-        end = [event.x, event.y]
+    if len(start) > 0:
+        canvas.create_oval(event.x-3,event.y-3, event.x+3, event.y+3, fill="yellow")
+        end.append(event.x)
+        end.append(event.y)
         draw_line(start[0], start[1], end[0], end[1])
     else:
+        canvas.create_oval(event.x-3,event.y-3, event.x+3, event.y+3, fill="green")
         start.append(event.x)
         start.append(event.y)
     
@@ -156,10 +221,14 @@ btn.place(x=620, y=140, width=120, height=20)    # размещаем кнопк
 canvas.bind('<Button-3>', add_conclusion_vertex)
 canvas.bind('<Button-1>', click_button)
 
+
 # print(cross([2, 2, 7, 3],[4, 1, 5, 6]))
 
 # print(cross([5, 4, 10, 5],[3, 3, 7, 6]))
 # print(cross([0, 0, 5, 5],[3, 3, 7, 7]))
 
+for i in edges:
+    print(i)
+    print(edges.count(i))
 
 root.mainloop()
