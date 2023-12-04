@@ -71,8 +71,6 @@ def cross(a, b):
     if (q1 / b1 == q2 / b2): return False
     t2 = (a2 - r2 + b2 / b1 * (r1 - a1)) / (q2 - b2*q1/b1)
     t1 = (q1*t2 + r1 - a1) / b1
-    #     # print(str(t1) + " " + str(t2))
-    # print(str(t1) + " " + str(t2))
     if (t2 >0 and t2 < 1 and t1 >0 and t1<1): return True
     return False
 
@@ -91,7 +89,8 @@ def cross_all(a, b):
     return False
 
 def draw_edges():
-    # print(mas_lines)
+    for i in mas_lines:
+        edges.append([(i[0], i[1], i[2], i[3]), ((i[0]-i[2])**2 + (i[1] - i[3])**2)**0.5])
     for i in range(len(mas_ver)-1):
         for j in range(i+1, len(mas_ver)):
             if (cross_all(mas_ver[i], mas_ver[j]) == True):
@@ -100,7 +99,6 @@ def draw_edges():
                     edges.append([[mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1]], ((mas_ver[j][0] - mas_ver[i][0])**2 + (mas_ver[j][1] - mas_ver[i][1])**2)**(0.5)])
                     vertices.add((mas_ver[i][0], mas_ver[i][1]))
                     vertices.add((mas_ver[j][0], mas_ver[j][1]))
-    # print(Dijkstra(edges, vertices, start, end))
     draw_path(Dijkstra(edges, vertices, start, end))
 
 def get_min(Dist, sp):
@@ -115,7 +113,6 @@ def get_min(Dist, sp):
 def draw_path(tq):
     tq.append((start[0], start[1]))
     for i in range(len(tq)-1, 0, -1):
-        print("AAAA")
         canvas.create_line(tq[i][0], tq[i][1], tq[i-1][0], tq[i-1][1], fill="green")
 
 def BuildPath(Par, s, e):
