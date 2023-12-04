@@ -93,7 +93,8 @@ def draw_edges():
     for i in range(len(mas_ver)-1):
         for j in range(i+1, len(mas_ver)):
             if (cross_all(mas_ver[i], mas_ver[j]) == True):
-                draw_line(mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1])
+                if (mas_rect.count({mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1]}) == 0):
+                    draw_line(mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1])
 
 
 def draw_line(a, b, c, d):
@@ -105,7 +106,7 @@ def click_button(event):
 
     if (len(mas) >= 2):
         canvas.create_rectangle(mas[0][0],mas[0][1], mas[1][0],mas[1][1], fill="black")
-        mas_rect.append((mas[0][0],mas[0][1], mas[1][0],mas[1][1]))
+        mas_rect.append({mas[0][0],mas[0][1], mas[1][0],mas[1][1]})
         line1 = (mas[0][0], mas[0][1], mas[0][0], mas[1][1]) #левая сторона
         line2 = (mas[0][0], mas[0][1], mas[1][0], mas[0][1]) #нижняя сторона
         line3 = (mas[1][0], mas[0][1], mas[1][0], mas[1][1]) #правая сторона
