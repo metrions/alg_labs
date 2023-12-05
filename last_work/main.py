@@ -162,6 +162,10 @@ def click_button(event):
         mas_lines.append(line2)
         mas_lines.append(line3)
         mas_lines.append(line4)
+        canvas.create_oval(mas[0][0]-3,mas[0][1]-3, mas[0][0]+3, mas[0][1]+3, fill="red")
+        canvas.create_oval(mas[1][0]-3,mas[0][1]-3, mas[1][0]+3,mas[0][1]+3, fill="red")
+        canvas.create_oval(mas[1][0]-3,mas[1][1]-3, mas[1][0]+3, mas[1][1]+3, fill="red")
+        canvas.create_oval(mas[0][0]-3,mas[1][1]-3, mas[0][0]+3, mas[1][1]+3, fill="red")
         mas_ver.append((mas[0][0], mas[0][1]))
         mas_ver.append((mas[1][0], mas[0][1]))
         mas_ver.append((mas[1][0], mas[1][1]))
@@ -183,7 +187,7 @@ def add_conclusion_vertex(event):
     
     mas_ver.append((event.x,event.y))
 
-
+#сохранение в json
 def save():
     my_file = open(f"{m.get()}.json", "w+")
     t = []
@@ -195,6 +199,7 @@ def save():
     json.dump({"react":t, "start": start, "end": end}, my_file)
     my_file.close()
 
+#ввод через json
 def file_open():
     f = open(f'{T.get()}.json', "r+")
     data = json.load(f)
@@ -221,6 +226,10 @@ def file_open():
         draw_line(*line2)
         draw_line(*line3)
         draw_line(*line4)
+        canvas.create_oval(i[0]-3,i[1]-3, i[0]+3, i[1]+3, fill="red")
+        canvas.create_oval(i[0]-3,i[3]-3, i[0]+3, i[3]+3, fill="red")
+        canvas.create_oval(i[2]-3,i[3]-3, i[2]+3, i[3]+3, fill="red")
+        canvas.create_oval(i[2]-3,i[1]-3, i[2]+3, i[1]+3, fill="red")
         mas_lines.append(line1)
         mas_lines.append(line2)
         mas_lines.append(line3)
@@ -230,7 +239,26 @@ def file_open():
         mas_ver.append((i[2], i[1]))
         mas_ver.append((i[2], i[3]))
 
-    
+def clear_graph():
+    canvas.create_rectangle(0, 0, 600, 800, fill="white", outline='white')
+    global mas
+    mas = []
+    global mas_rect
+    mas_rect = []       #массив всех
+    global mas_ver
+    mas_ver = []        #массив всех вершин и пряпятствий и точек 
+    global mas_lines
+    mas_lines = []      #массив всех граней препятствий 
+    global rect
+    rect = []
+    global start
+    start = []          #точка начала
+    global end
+    end = []            #точка конца
+    global edges
+    edges = []          #множество ребер
+    global vertices
+    vertices = set()    #множество вершин
 
 
 
@@ -250,6 +278,9 @@ m = ttk.Entry()
 m.place(x=620, y=160, width=120, height=20)
 op_file = ttk.Button(text="Save", command=save)
 op_file.place(x=620, y=190, width=  120, height=20)
+
+clear_all = ttk.Button(text="Clear_all", command=clear_graph)
+clear_all.place(x=620, y=220, width=  120, height=20)
 
 canvas.bind('<Button-3>', add_conclusion_vertex)
 canvas.bind('<Button-1>', click_button)
