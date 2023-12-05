@@ -42,7 +42,7 @@ def cross(a, b):
     #
     t2 = (a2 - r2 + b2 / b1 * (r1 - a1)) / (q2 - b2*q1/b1)
     t1 = (q1*t2 + r1 - a1) / b1
-    if (round(t2, 2) >0 and round(t2, 2) < 1 and round(t1, 2) and round(t1, 2)<1): return True
+    if (round(t2, 3) >0 and round(t2, 3) < 1 and round(t1, 3)>0 and round(t1, 3)<=1): return True
     return False
 
 #пересекается ли хотя бы с одним ребром
@@ -86,6 +86,7 @@ def draw_path(tq):
     tq.append((start[0], start[1]))
     for i in range(len(tq)-1, 0, -1):
         canvas.create_line(tq[i][0], tq[i][1], tq[i-1][0], tq[i-1][1], fill="green", width=3)
+    print(len(mas_ver))
 
 #строение путя в обратном порядке
 def BuildPath(Par, s, e):
@@ -94,7 +95,6 @@ def BuildPath(Par, s, e):
         tq.append((e[0], e[1]))
         e = Par[(e[0], e[1])]
     tq.append((e[0], e[1]))
-    print(f"AAAAAAAAA{tq}")
     return tq
 
 
@@ -209,8 +209,6 @@ def file_open():
     # global vertices
     vertices.add((start[0], start[1]))
     vertices.add((end[0], end[1]))
-    # vertices.append((start[0], start[1]))
-    # vertices.append((end[0], end[1]))
     for i in data["react"]:
         mas_rect.append({i[0], i[1], i[2], i[3]})
         rect.append([i[0], i[1], i[2], i[3]])
@@ -232,12 +230,6 @@ def file_open():
         mas_ver.append((i[2], i[1]))
         mas_ver.append((i[2], i[3]))
 
-        # vertices.add((i[0], i[1]))
-        # vertices.add((i[0], i[3]))
-        # vertices.add((i[2], i[1]))
-        # vertices.add((i[2], i[3]))
-    print(mas_lines)
-    print(vertices)
     
 
 
