@@ -1,1 +1,1 @@
-print(v)
+mas = []
