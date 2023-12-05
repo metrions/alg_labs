@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import json
+# import tk
  
 root = Tk()     # создаем корневой объект - окно
 root.title("Приложение на Tkinter")     # устанавливаем заголовок окна
@@ -184,7 +185,7 @@ def add_conclusion_vertex(event):
 
 
 def save():
-    my_file = open("save.json", "w+")
+    my_file = open(f"{m.get()}.json", "w+")
     t = []
     for i in rect:
         q = []
@@ -192,11 +193,10 @@ def save():
             q.append(i[j])
         t.append(q)
     json.dump({"react":t, "start": start, "end": end}, my_file)
-    # json.dump({"start":t}, my_file)
     my_file.close()
 
 def file_open():
-    f = open('save.json', "r+")
+    f = open(f'{T.get()}.json', "r+")
     data = json.load(f)
     global start
     start = data["start"]
@@ -246,13 +246,18 @@ def file_open():
 canvas = Canvas(bg="white", width=600, height=800)
 canvas.pack(anchor="nw", expand=1)
 btn = ttk.Button(text="Draw graph", command=draw_edges)
-btn.place(x=620, y=140, width=120, height=20)    # размещаем кнопку в окне
+btn.place(x=620, y=70, width=120, height=20)    # размещаем кнопку в окне
+
+T = ttk.Entry()
+T.place(x=620, y=100, width=120, height=20)
 
 op_file = ttk.Button(text="Open json", command=file_open)
-op_file.place(x=620, y=170, width=120, height=20)
+op_file.place(x=620, y=130, width=120, height=20)
 
+m = ttk.Entry()
+m.place(x=620, y=160, width=120, height=20)
 op_file = ttk.Button(text="Save", command=save)
-op_file.place(x=620, y=200, width=120, height=20)
+op_file.place(x=620, y=190, width=  120, height=20)
 
 canvas.bind('<Button-3>', add_conclusion_vertex)
 canvas.bind('<Button-1>', click_button)
