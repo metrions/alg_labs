@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import json
  
 root = Tk()     # создаем корневой объект - окно
 root.title("Приложение на Tkinter")     # устанавливаем заголовок окна
@@ -10,6 +11,7 @@ mas = []
 mas_rect = []       #массив всех
 mas_ver = []        #массив всех вершин и пряпятствий и точек 
 mas_lines = []      #массив всех граней препятствий 
+rect = []
 
 start = []          #точка начала
 end = []            #точка конца
@@ -39,7 +41,7 @@ def cross(a, b):
     #
     t2 = (a2 - r2 + b2 / b1 * (r1 - a1)) / (q2 - b2*q1/b1)
     t1 = (q1*t2 + r1 - a1) / b1
-    if (t2 >0 and t2 < 1 and t1 >0 and t1<1): return True
+    if (round(t2, 2) >0 and round(t2, 2) < 1 and round(t1, 2) and round(t1, 2)<1): return True
     return False
 
 #пересекается ли хотя бы с одним ребром
@@ -65,6 +67,7 @@ def draw_edges():
                     edges.append([[mas_ver[i][0], mas_ver[i][1], mas_ver[j][0], mas_ver[j][1]], ((mas_ver[j][0] - mas_ver[i][0])**2 + (mas_ver[j][1] - mas_ver[i][1])**2)**(0.5)])
                     vertices.add((mas_ver[i][0], mas_ver[i][1]))
                     vertices.add((mas_ver[j][0], mas_ver[j][1]))
+    # print(type(Dijkstra(edges, vertices, start, end)))
     draw_path(Dijkstra(edges, vertices, start, end))
 
 #вершина с min Dist
@@ -90,6 +93,7 @@ def BuildPath(Par, s, e):
         tq.append((e[0], e[1]))
         e = Par[(e[0], e[1])]
     tq.append((e[0], e[1]))
+    print(f"AAAAAAAAA{tq}")
     return tq
 
 
@@ -112,11 +116,13 @@ def Dijkstra(graph, ver, st, en):
         # print(s)
         for v in s:
             print((v[0][0], v[0][1]))
-            try:
+            # try:
             if ((v[0][0], v[0][1]) in Distance.keys()):
                 if Distance[(v[0][0], v[0][1])] > Distance[(temp[0], temp[1])] + v[1]:
                     Distance[(v[0][0], v[0][1])] = Distance[(temp[0], temp[1])] + v[1]
                     Parent[(v[0][0], v[0][1])] = temp
+            # except:
+            #     print("Exception")
     
 #массив всех ребер смежных с точкой a
 def get_all_edges(graph, a):
@@ -146,7 +152,7 @@ def click_button(event):
         line2 = (mas[0][0], mas[0][1], mas[1][0], mas[0][1]) #нижняя сторона
         line3 = (mas[1][0], mas[0][1], mas[1][0], mas[1][1]) #правая сторона
         line4 = (mas[0][0], mas[1][1], mas[1][0], mas[1][1]) #левый верхний угл
-
+        rect.append([mas[0][0],mas[0][1], mas[1][0],mas[1][1]])
         draw_line(*line1)
         draw_line(*line2)
         draw_line(*line3)
@@ -177,6 +183,64 @@ def add_conclusion_vertex(event):
     mas_ver.append((event.x,event.y))
 
 
+def save():
+    my_file = open("save.json", "w+")
+    t = []
+    for i in rect:
+        q = []
+        for j in range(len(i)):
+            q.append(i[j])
+        t.append(q)
+    json.dump({"react":t, "start": start, "end": end}, my_file)
+    # json.dump({"start":t}, my_file)
+    my_file.close()
+
+def file_open():
+    f = open('save.json', "r+")
+    data = json.load(f)
+    global start
+    start = data["start"]
+    canvas.create_oval(start[0]-3, start[1]-3, start[0]+3, start[1]+3, fill="yellow")
+    global end
+    end = data["end"]
+    canvas.create_oval(end[0]-3, end[1]-3, end[0]+3, end[1]+3, fill="green")
+    mas_ver.append((start[0], start[1]))
+    mas_ver.append((end[0], end[1]))
+    # global vertices
+    vertices.add((start[0], start[1]))
+    vertices.add((end[0], end[1]))
+    # vertices.append((start[0], start[1]))
+    # vertices.append((end[0], end[1]))
+    for i in data["react"]:
+        mas_rect.append({i[0], i[1], i[2], i[3]})
+        rect.append([i[0], i[1], i[2], i[3]])
+        canvas.create_rectangle(i, fill="black")
+        line1 = (i[0], i[1], i[0], i[3]) #левая сторона
+        line2 = (i[0], i[1], i[2], i[1]) #нижняя сторона
+        line3 = (i[0], i[3], i[2], i[3]) #верхняя сторона
+        line4 = (i[2], i[3], i[2], i[1]) #правая сторона
+        draw_line(*line1)
+        draw_line(*line2)
+        draw_line(*line3)
+        draw_line(*line4)
+        mas_lines.append(line1)
+        mas_lines.append(line2)
+        mas_lines.append(line3)
+        mas_lines.append(line4)
+        mas_ver.append((i[0], i[1]))
+        mas_ver.append((i[0], i[3]))
+        mas_ver.append((i[2], i[1]))
+        mas_ver.append((i[2], i[3]))
+
+        # vertices.add((i[0], i[1]))
+        # vertices.add((i[0], i[3]))
+        # vertices.add((i[2], i[1]))
+        # vertices.add((i[2], i[3]))
+    print(mas_lines)
+    print(vertices)
+    
+
+
 
 
 canvas = Canvas(bg="white", width=600, height=800)
@@ -184,6 +248,11 @@ canvas.pack(anchor="nw", expand=1)
 btn = ttk.Button(text="Draw graph", command=draw_edges)
 btn.place(x=620, y=140, width=120, height=20)    # размещаем кнопку в окне
 
+op_file = ttk.Button(text="Open json", command=file_open)
+op_file.place(x=620, y=170, width=120, height=20)
+
+op_file = ttk.Button(text="Save", command=save)
+op_file.place(x=620, y=200, width=120, height=20)
 
 canvas.bind('<Button-3>', add_conclusion_vertex)
 canvas.bind('<Button-1>', click_button)
@@ -191,5 +260,4 @@ canvas.bind('<Button-1>', click_button)
 # print(cross([2, 2, 7, 3],[4, 1, 5, 6]))
 # print(cross([5, 4, 10, 5],[3, 3, 7, 6]))
 # print(cross([0, 0, 5, 5],[3, 3, 7, 7]))
-
 root.mainloop()
