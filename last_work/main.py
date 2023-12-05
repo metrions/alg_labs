@@ -42,7 +42,7 @@ def cross(a, b):
     #
     t2 = (a2 - r2 + b2 / b1 * (r1 - a1)) / (q2 - b2*q1/b1)
     t1 = (q1*t2 + r1 - a1) / b1
-    if (round(t2, 3) >0 and round(t2, 3) < 1 and round(t1, 3)>0 and round(t1, 3)<=1): return True
+    if (round(t2, 5) >0 and round(t2, 5) < 1 and round(t1, 5)>0 and round(t1, 5)<1): return True
     return False
 
 #пересекается ли хотя бы с одним ребром

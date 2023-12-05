@@ -150,10 +150,13 @@ double Rand(double a, double b){
 
 double all_weight(const Graph graph, vector<vector<int>> s){
     double k = 0;
+    double max = 0;
     for (auto t=s.begin(); t!=s.end(); t++){
-        k = k + Length(graph, *t);
+        if (max < Length(graph, *t)){
+            max = Length(graph, *t);
+        }
     }
-    return k;
+    return max;
 }
 
 vector<vector<int>> new_gen(const Graph &graph, vector<int> &ver){
@@ -178,18 +181,22 @@ vector<vector<int>> new_gen(const Graph &graph, vector<int> &ver){
 }
 
 vector<vector<int>> SUS(const Graph &graph, vector<vector<int>> &Population, int N){
-    double F = all_weight(graph, Population);
+    double F = 0;
+    double tmp = all_weight(graph, Population);
+    for (int i=0; i<Population.size(); i++){
+        F = F + tmp - Length(graph, Population[i]);
+    }
     double Dist = F / double(N);
     double Start = Rand(0, Dist);
     vector<vector<int>> Chosen = {};
     int k = 0;
-    double SumWeight = Length(graph, Population[0]);
+    double SumWeight = tmp - Length(graph, Population[0]);
     double Point;
     for (int i=0; i<N; i++){
         Point = Start + i*Dist;
         while(SumWeight < Point){
             k++;
-            SumWeight += Length(graph, Population[k]);
+            SumWeight += tmp - Length(graph, Population[k]);
         }
         Chosen.push_back(Population[k]);
     }
@@ -278,20 +285,25 @@ vector<int> tsp(const Graph &graph) {
     int it = 0;
     double weight_gen = 0;
 
-    int MaxIt = 10;
-    double Pm = 0.3;
+    int MaxIt = 20;
+    double Pm = 0.5;
     int N = 10;
     int P = 10;
 
-    vector<vector<int>> N_p = SUS(graph, start_gen, N);
+    vector<vector<int>> N_p;
     set<vector<int>> sons = {};
     vector<int> Parent1 = {};
     vector<int> Parent2 = {};
     int p1 = 0;
     int p2 = 0;
+    vector<double> sum_fitness = {}; //new
     vector<int> temp = {};
     while (it < MaxIt){
-        weight_gen = all_weight(graph, start_gen);
+        // weight_gen = all_weight(graph, start_gen);
+        // cout << " " << start_gen.size() << " ";
+        // for (auto q=start_gen.begin(); q!=start_gen.end(); q++){
+        //     sum_fitness.push_back(weight_gen -Length(graph, *q));
+        // }
         N_p = SUS(graph, start_gen, N);
         while (sons.size() < P){
             p1 = rand() % int(N_p.size());
