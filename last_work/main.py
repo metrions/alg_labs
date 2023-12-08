@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter.messagebox import showerror, showwarning, showinfo
 import json
 # import tk
  
@@ -13,6 +14,7 @@ mas_rect = []       #массив всех
 mas_ver = []        #массив всех вершин и пряпятствий и точек 
 mas_lines = []      #массив всех граней препятствий 
 rect = []
+tochk = []
 
 start = []          #точка начала
 end = []            #точка конца
@@ -58,6 +60,9 @@ def cross_all(a, b):
 
 #рисование всех ребер
 def draw_edges():
+    global tochk
+    global start
+    global vertices
     for i in mas_lines:
         edges.append([(i[0], i[1], i[2], i[3]), ((i[0]-i[2])**2 + (i[1] - i[3])**2)**0.5])
     for i in range(len(mas_ver)-1):
@@ -69,7 +74,13 @@ def draw_edges():
                     vertices.add((mas_ver[i][0], mas_ver[i][1]))
                     vertices.add((mas_ver[j][0], mas_ver[j][1]))
     # print(type(Dijkstra(edges, vertices, start, end)))
-    draw_path(Dijkstra(edges, vertices, start, end))
+    try:
+        for i in tochk:
+            draw_path(Dijkstra(edges, vertices, start, i))
+            start = i
+    except:
+        showwarning(title="Предупреждение", message="Такой граф построить невозможно")
+        clear_graph()
 
 #вершина с min Dist
 def get_min(Dist, sp):
@@ -86,7 +97,6 @@ def draw_path(tq):
     tq.append((start[0], start[1]))
     for i in range(len(tq)-1, 0, -1):
         canvas.create_line(tq[i][0], tq[i][1], tq[i-1][0], tq[i-1][1], fill="green", width=3)
-    print(len(mas_ver))
 
 #строение путя в обратном порядке
 def BuildPath(Par, s, e):
@@ -105,18 +115,19 @@ def Dijkstra(graph, ver, st, en):
         # print(i)
         Distance[(i[0], i[1])] = 9999999999
     Distance[(st[0], st[1])] = 0
-    Q = ver
+    Q = set()
+    for i in ver:
+        Q.add(i)
     temp = 0
     Parent = {}
     while (len(Q) != 0):
-        temp = get_min(Distance, ver)
+        temp = get_min(Distance, Q)
         Q.remove(temp)
         if (temp[0] == en[0] and temp[1] == en[1]):
             return BuildPath(Parent, st, en)
         s = get_all_edges(graph, temp)
         # print(s)
         for v in s:
-            print((v[0][0], v[0][1]))
             # try:
             if ((v[0][0], v[0][1]) in Distance.keys()):
                 if Distance[(v[0][0], v[0][1])] > Distance[(temp[0], temp[1])] + v[1]:
@@ -175,10 +186,14 @@ def click_button(event):
 
 #точка старта точка конца
 def add_conclusion_vertex(event):
+    global tochk
+    global end
     if len(start) > 0:
         canvas.create_oval(event.x-3,event.y-3, event.x+3, event.y+3, fill="yellow")
+        end = []
         end.append(event.x)
         end.append(event.y)
+        tochk.append(end)
         # draw_line(start[0], start[1], end[0], end[1])
     else:
         canvas.create_oval(event.x-3,event.y-3, event.x+3, event.y+3, fill="green")
