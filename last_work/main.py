@@ -74,13 +74,15 @@ def draw_edges():
                     vertices.add((mas_ver[i][0], mas_ver[i][1]))
                     vertices.add((mas_ver[j][0], mas_ver[j][1]))
     # print(type(Dijkstra(edges, vertices, start, end)))
-    try:
-        for i in tochk:
-            draw_path(Dijkstra(edges, vertices, start, i))
-            start = i
-    except:
-        showwarning(title="Предупреждение", message="Такой граф построить невозможно")
-        clear_graph()
+    # try:
+    q = [start[0], start[1]]
+    for i in tochk:
+        draw_path(Dijkstra(edges, vertices, start, i))
+        start = i
+    start = [q[0], q[1]]
+    # except:
+    #     showwarning(title="Предупреждение", message="Такой граф построить невозможно")
+    #     clear_graph()
 
 #вершина с min Dist
 def get_min(Dist, sp):
@@ -187,6 +189,7 @@ def click_button(event):
 #точка старта точка конца
 def add_conclusion_vertex(event):
     global tochk
+    global start
     global end
     if len(start) > 0:
         canvas.create_oval(event.x-3,event.y-3, event.x+3, event.y+3, fill="yellow")
@@ -211,7 +214,7 @@ def save():
         for j in range(len(i)):
             q.append(i[j])
         t.append(q)
-    json.dump({"react":t, "start": start, "end": end}, my_file)
+    json.dump({"react":t, "start": start, "end": end, "tochk": tochk}, my_file)
     my_file.close()
 
 #ввод через json
@@ -219,16 +222,19 @@ def file_open():
     f = open(f'{T.get()}.json', "r+")
     data = json.load(f)
     global start
+    global tochk
+    global end
+    tochk = data["tochk"]
     start = data["start"]
     canvas.create_oval(start[0]-3, start[1]-3, start[0]+3, start[1]+3, fill="yellow")
-    global end
-    end = data["end"]
-    canvas.create_oval(end[0]-3, end[1]-3, end[0]+3, end[1]+3, fill="green")
+    for i in tochk:
+        end = i
+        canvas.create_oval(end[0]-3, end[1]-3, end[0]+3, end[1]+3, fill="green")
+        mas_ver.append((i[0], i[1]))
+        vertices.add((i[0], i[1]))
+
     mas_ver.append((start[0], start[1]))
-    mas_ver.append((end[0], end[1]))
-    # global vertices
     vertices.add((start[0], start[1]))
-    vertices.add((end[0], end[1]))
     for i in data["react"]:
         mas_rect.append({i[0], i[1], i[2], i[3]})
         rect.append([i[0], i[1], i[2], i[3]])
@@ -274,6 +280,8 @@ def clear_graph():
     edges = []          #множество ребер
     global vertices
     vertices = set()    #множество вершин
+    global tochk
+    tochk = []
 
 
 
