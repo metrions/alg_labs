@@ -47,11 +47,6 @@ def cross(a, b):
         if (cx[0] > dx[0] and cx[0] < dx[1]): return True
         # elif (cx[1] > dx[0] and cx[1] < dx[1]): return True
         elif (cy[0] > dy[0] and cy[0] < dy[1]): return True
-        # elif (cy[1] > dy[0] and cy[1] < dy[1]): return True
-        # if (dx[0] > cx[0] and dx[0] < cx[1]): return True
-        # elif (dx[1] > cx[0] and dx[1] < cx[1]): return True
-        # elif (dy[0] > cy[0] and dy[0] < cy[1]): return True
-        # elif (dy[1] > cy[0] and dy[1] < cy[1]): return True
         return False
     #направляющие векторы равны
     if (q1 / b1 == q2 / b2): return False
@@ -110,6 +105,9 @@ def draw_edges():
                     vertices.add((mas_ver[i][0], mas_ver[i][1]))
                     vertices.add((mas_ver[j][0], mas_ver[j][1]))
     #построение пути
+    if (len(start) == 0 or len(tochk) == 0):
+        showwarning(title="Предупреждение", message="Некорректный ввод данных")
+        clear_graph()
     try:
         q = [start[0], start[1]]
         for i in tochk:
@@ -117,7 +115,7 @@ def draw_edges():
             start = i
         start = [q[0], q[1]]
     except:
-        showwarning(title="Предупреждение", message="Графа не существует")
+        showwarning(title="Предупреждение", message="Нет пути")
         clear_graph()
 
 #вершина с min Dist
