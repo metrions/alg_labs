@@ -19,6 +19,13 @@ void printsv(set<vector<int>> s){
         printv(*t);
     }
 }
+void printvv(vector<vector<int>> s){
+    cout << "gen : " << endl;
+    for (auto t = s.begin(); t != s.end(); t++){
+        printv(*t);
+    }
+    cout << endl;
+}
 
 double Length(const Graph &graph, const vector<int> &path){
     double l = 0;
@@ -126,18 +133,6 @@ vector<int> TwoOptImprove(const Graph &graph, vector <int> &Path){
 
 }
 
-// vector<int> tsp_act(const Graph &graph, vector<int> CurrentPath){
-//     vector<int> ImprovedPath = {};
-//     while (true){
-//         ImprovedPath = TwoOptImprove(graph, CurrentPath);
-//         printv(ImprovedPath);
-//         if (Length(graph, ImprovedPath) < Length(graph, CurrentPath)){
-//             CurrentPath = ImprovedPath;
-//         }
-//         else return CurrentPath;
-//     }
-//     return CurrentPath;
-// }
 
 double Rand(double a, double b){
     double d = b - a;
@@ -145,27 +140,13 @@ double Rand(double a, double b){
     return a + double(r % 100) / 100 * d;
 }
 
-// int P = 10;
-// int N = 5;
-
-double all_weight(const Graph graph, vector<vector<int>> s){
-    double k = 0;
-    double max = 0;
-    for (auto t=s.begin(); t!=s.end(); t++){
-        if (max < Length(graph, *t)){
-            max = Length(graph, *t);
-        }
-    }
-    return max;
-}
-
-vector<vector<int>> new_gen(const Graph &graph, vector<int> &ver){
+vector<vector<int>> new_gen(const Graph &graph, vector<int> &ver, int P){
     set<vector<int>> start_gen = {ver};
     int p1 = 0;
     int p2 = 0;
     int t = 0;
-    while (start_gen.size() != ver.size()){
-        while (start_gen.find(ver) != start_gen.end()){
+    while (start_gen.size() != P){
+        for (int i=0; i<50; i++){
             p1 = rand()% ver.size();
             p2 = rand()% ver.size();
             t = ver[p1];
@@ -180,26 +161,50 @@ vector<vector<int>> new_gen(const Graph &graph, vector<int> &ver){
     return v;
 }
 
-vector<vector<int>> SUS(const Graph &graph, vector<vector<int>> &Population, int N){
-    double F = 0;
-    double tmp = all_weight(graph, Population);
-    for (int i=0; i<Population.size(); i++){
-        F = F + tmp - Length(graph, Population[i]);
+double max_weight(const Graph graph, vector<vector<int>> s){
+    double k = 0;
+    double max = 0;
+    for (auto t=s.begin(); t!=s.end(); t++){
+        if (max < Length(graph, *t)){
+            max = Length(graph, *t);
+        }
     }
+    return max;
+}
+
+double all_weight(const Graph &graph, vector<vector<int>> &Population){
+    double t = 0;
+    double m = max_weight(graph, Population);
+    for (auto i=Population.begin(); i!=Population.end(); i++){
+        t += m - Length(graph, *i);
+    }
+    return t;
+}
+
+vector<vector<int>> SUS(const Graph &graph, vector<vector<int>> &Population, int N){
+    double F = all_weight(graph, Population);
+    // cout << F << endl;
     double Dist = F / double(N);
     double Start = Rand(0, Dist);
+    // cout << Start << endl;
     vector<vector<int>> Chosen = {};
     int k = 0;
-    double SumWeight = tmp - Length(graph, Population[0]);
+    double m = max_weight(graph, Population);
+    double SumWeight = m - Length(graph, Population[0]);    //вес хромосомы Population[0]
+    set<vector<int>> saved = {};
     double Point;
     for (int i=0; i<N; i++){
-        Point = Start + i*Dist;
+        Point = Start + i*Dist;     //текущий сэмпл
         while(SumWeight < Point){
             k++;
-            SumWeight += tmp - Length(graph, Population[k]);
+            SumWeight += m - Length(graph, Population[k]);
         }
-        Chosen.push_back(Population[k]);
+        if (saved.find(Population[k]) == saved.end()){
+            Chosen.push_back(Population[k]);
+            saved.insert(Population[k]);
+        }
     }
+    // printvv(Chosen);
     return Chosen;
 }
 
@@ -244,22 +249,22 @@ int choose(map<int, set<int>> &edge){
 }
 
 vector<int> CrossovER(vector<int> &Parent1, vector<int> &Parent2){
-    std::map<int, set<int>> edge;
+    std::map<int, set<int>> edge;   //карта ребер
     vector<int> Offspring = {};
     int ind = 0;
     int len = Parent1.size();
     // cout << "ASD" << endl;
-    for (int i=0; i<len; i++){
+    for (int i=0; i<len; i++){  //составление карты ребер
         ind = get_index(Parent2, Parent1[i]);
-        edge[Parent1[i]] = {Parent1[(i+1+len)%len], Parent1[(i-1+len)%len], Parent2[(ind-1+len)%len], Parent1[(ind-1+len)%len]};
+        edge[Parent1[i]] = {Parent1[(i+1+len)%len], Parent1[(i-1+len)%len], Parent2[(ind-1+len)%len], Parent2[(ind-1+len)%len]};
     }
     int r = Parent1[int(rand()) % len];
     Offspring.push_back(r);
     set<int> temp = {};
     while (Offspring.size() != len){
         temp = edge[r];
-        DeleteFromMap(edge, r);
-        r = choose(edge);
+        DeleteFromMap(edge, r);     //удаление смежных точек с текущей
+        r = choose(edge);           //выбор точки с минимальным кол-вом смежных ребер
         Offspring.push_back(r);
     }
     return Offspring;
@@ -281,14 +286,13 @@ vector<int> best(const Graph &graph, vector<vector<int>> Gen){
 vector<int> tsp(const Graph &graph) {
     vector<int> ver = graph.get_vertices();
     if (ver.size() < 2) return {};
-    vector<vector<int>> start_gen = new_gen(graph, ver);    //формирование нового гена или путя
-    int it = 0;
-    double weight_gen = 0;
 
-    int MaxIt = 20;
+    int MaxIt = 10;
     double Pm = 0.5;
     int N = 10;
-    int P = 10;
+    int P = 100;
+    vector<vector<int>> start_gen = new_gen(graph, ver, P);    //формирование нового гена или путя
+    int it = 0;
 
     vector<vector<int>> N_p;
     set<vector<int>> sons = {};
@@ -298,34 +302,32 @@ vector<int> tsp(const Graph &graph) {
     int p2 = 0;
     vector<double> sum_fitness = {}; //new
     vector<int> temp = {};
+    // printvv(start_gen);
     while (it < MaxIt){
-        // weight_gen = all_weight(graph, start_gen);
-        // cout << " " << start_gen.size() << " ";
-        // for (auto q=start_gen.begin(); q!=start_gen.end(); q++){
-        //     sum_fitness.push_back(weight_gen -Length(graph, *q));
-        // }
         N_p = SUS(graph, start_gen, N);
+        // printvv(N_p);
+        // printvv(N_p);
         while (sons.size() < P){
             p1 = rand() % int(N_p.size());
             p2 = rand() % int(N_p.size());
-            if (p1 != p2) sons.insert(CrossovER(N_p[p1], N_p[p2]));
+            if (p1 != p2) sons.insert(CrossovER(N_p[p1], N_p[p2])); //2 случайно выбранные хромосомы из N_P
         }
         int m = 0;
-        start_gen = {};
-        for (auto i=sons.begin(); i!=sons.end(); i++){
-            temp = *i;
+        vector<vector<int>> son2(sons.begin(), sons.end());
+        // printvv(son2);
+        for (int i=0; i < son2.size(); i++){
+            temp = son2[i];
             if (Rand(0, 1) < Pm){
-                start_gen.push_back(TwoOptImprove(graph, temp));
+                son2[i] = TwoOptImprove(graph, temp);
             }
             else{
-                start_gen.push_back(temp);
+                son2[i] = temp;
             }
         }
-        // for (auto i : sons){
-        //     // printv(i);
-        //     start_gen.push_back(i);
-        // }
-        // printv(best(graph, start_gen));
+        start_gen = son2;
+        sons.erase(sons.begin(), sons.end());
+        son2.erase(son2.begin(), son2.end());
+        // printvv(start_gen);
         it++;
     }
 
