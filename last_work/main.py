@@ -1,18 +1,19 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter.messagebox import showerror, showwarning, showinfo
 import json
-
-# import tk
 
 root = Tk()  # создаем корневой объект - окно
 root.title("Приложение на Tkinter")  # устанавливаем заголовок окна
 root.geometry("800x800")  # устанавливаем размеры окна
 
-mas = []
+mas = []  # массив для рисования прямоугольников
 mas_rect = []  # массив всех
 mas_ver = []  # массив всех вершин и пряпятствий и точек
 mas_lines = []  # массив всех граней препятствий
 rect = []
+tochk = []  # массив промежуточных точек
+mas_lines_rect = []  # массив линий прямоугольников
 
 start = []  # точка начала
 end = []  # точка конца
@@ -34,15 +35,25 @@ def cross(a, b):
     q1 = float(b[2]) - float(b[0])  # k1
     q2 = float(b[3]) - float(b[1])  # k2
     # прямые равны
-    if (a == b): return True
     # одна прямая параллельная оси
-    if (b1 == 0 or q2 - b2 / b1 == 0 or b2 == 0): return False
+    if (a == b): return False
+    if (b1 == 0 or q2 - b2 / b1 == 0 or b2 == 0 or q1 / b1 == q2 / b2):
+        cx = sorted([a[0], a[2]])
+        dx = sorted([b[0], b[2]])
+        cy = sorted([a[1], a[3]])
+        dy = sorted([b[1], b[3]])
+        if (cx[0] > dx[0] and cx[0] < dx[1]):
+            return True
+        # elif (cx[1] > dx[0] and cx[1] < dx[1]): return True
+        elif (cy[0] > dy[0] and cy[0] < dy[1]):
+            return True
+        return False
     # направляющие векторы равны
     if (q1 / b1 == q2 / b2): return False
     #
     t2 = (a2 - r2 + b2 / b1 * (r1 - a1)) / (q2 - b2 * q1 / b1)
     t1 = (q1 * t2 + r1 - a1) / b1
-    if (round(t2, 5) > 0 and round(t2, 5) < 1 and round(t1, 5) > 0 and round(t1, 5) < 1): return True
+    if (t2 > 0 and t2 < 1 and t1 > 0 and t1 < 1): return True
     return False
 
 
@@ -53,15 +64,40 @@ def cross_all(a, b):
         test = (a[0], a[1], b[0], b[1])
         if cross(test, mas_lines[i]) == True:
             cd += 1
-
     if (cd == 0): return True
     return False
 
 
 # рисование всех ребер
 def draw_edges():
-    for i in mas_lines:
-        edges.append([(i[0], i[1], i[2], i[3]), ((i[0] - i[2]) ** 2 + (i[1] - i[3]) ** 2) ** 0.5])
+    global tochk
+    global start
+    global vertices
+    # так как в формуле коэфициенты могут быть равны 0, а на 0 делить нельзя массив отрезков с 0 коэф рассматривается отдельно
+    for i in mas_lines_rect:
+        d = False
+        for j in mas_lines_rect:
+            if (i != j):
+                cx = sorted([i[0], i[2]])
+                dx = sorted([j[0], j[2]])
+                cy = sorted([i[1], i[3]])
+                dy = sorted([j[1], j[3]])
+
+                if (cx[1] > dx[0] and cx[1] < dx[1]):
+                    if (cy[0] > dy[0] and cy[0] < dy[1]):
+                        d = True
+                    if (dy[0] > cy[0] and dy[0] < cy[1]):
+                        d = True
+                if (dx[1] > cx[0] and dx[1] < cx[1]):
+                    if (cy[0] > dy[0] and cy[0] < dy[1]):
+                        d = True
+                    if (dy[0] > cy[0] and dy[0] < cy[1]):
+                        d = True
+        if (d == False):
+            draw_line(i[0], i[1], i[2], i[3])
+            edges.append([(i[0], i[1], i[2], i[3]), ((i[0] - i[2]) ** 2 + (i[1] - i[3]) ** 2) ** 0.5])
+
+    # добавление отрезков из точек
     for i in range(len(mas_ver) - 1):
         for j in range(i + 1, len(mas_ver)):
             if (cross_all(mas_ver[i], mas_ver[j]) == True):
@@ -72,8 +108,19 @@ def draw_edges():
                                       0.5)])
                     vertices.add((mas_ver[i][0], mas_ver[i][1]))
                     vertices.add((mas_ver[j][0], mas_ver[j][1]))
-    # print(type(Dijkstra(edges, vertices, start, end)))
-    draw_path(Dijkstra(edges, vertices, start, end))
+    # построение пути
+    if (len(start) == 0 or len(tochk) == 0):
+        showwarning(title="Предупреждение", message="Некорректный ввод данных")
+        clear_graph()
+    try:
+        q = [start[0], start[1]]
+        for i in tochk:
+            draw_path(Dijkstra(edges, vertices, start, i))
+            start = i
+        start = [q[0], q[1]]
+    except:
+        showwarning(title="Предупреждение", message="Нет пути")
+        clear_graph()
 
 
 # вершина с min Dist
@@ -92,7 +139,8 @@ def draw_path(tq):
     tq.append((start[0], start[1]))
     for i in range(len(tq) - 1, 0, -1):
         canvas.create_line(tq[i][0], tq[i][1], tq[i - 1][0], tq[i - 1][1], fill="green", width=3)
-    print(len(mas_ver))
+    # for i in mas_rect:
+    #     canvas.create_rectangle(i[0], i[1], i[2], i[3])
 
 
 # строение путя в обратном порядке
@@ -109,28 +157,24 @@ def BuildPath(Par, s, e):
 def Dijkstra(graph, ver, st, en):
     Distance = {}
     for i in ver:
-        # print(i)
         Distance[(i[0], i[1])] = 9999999999
     Distance[(st[0], st[1])] = 0
-    Q = ver
+    Q = set()
+    for i in ver:
+        Q.add(i)
     temp = 0
     Parent = {}
     while (len(Q) != 0):
-        temp = get_min(Distance, ver)
+        temp = get_min(Distance, Q)
         Q.remove(temp)
         if (temp[0] == en[0] and temp[1] == en[1]):
             return BuildPath(Parent, st, en)
         s = get_all_edges(graph, temp)
-        # print(s)
         for v in s:
-            print((v[0][0], v[0][1]))
-            # try:
             if ((v[0][0], v[0][1]) in Distance.keys()):
                 if Distance[(v[0][0], v[0][1])] > Distance[(temp[0], temp[1])] + v[1]:
                     Distance[(v[0][0], v[0][1])] = Distance[(temp[0], temp[1])] + v[1]
                     Parent[(v[0][0], v[0][1])] = temp
-            # except:
-            #     print("Exception")
 
 
 # массив всех ребер смежных с точкой a
@@ -180,10 +224,15 @@ def click_button(event):
 
 # точка старта точка конца
 def add_conclusion_vertex(event):
+    global tochk
+    global start
+    global end
     if len(start) > 0:
         canvas.create_oval(event.x - 3, event.y - 3, event.x + 3, event.y + 3, fill="yellow")
+        end = []
         end.append(event.x)
         end.append(event.y)
+        tochk.append(end)
         # draw_line(start[0], start[1], end[0], end[1])
     else:
         canvas.create_oval(event.x - 3, event.y - 3, event.x + 3, event.y + 3, fill="green")
@@ -193,65 +242,66 @@ def add_conclusion_vertex(event):
     mas_ver.append((event.x, event.y))
 
 
+# сохранение в json
 def save():
-    file_path = m.get()
-    if not file_path.endswith(".json"):
-        file_path += ".json"
-
-    my_file = open(file_path, "w+")
-
-    # Создаем структуру данных для сохранения
-    data = {
-        "mas_ver": mas_ver,
-        "mas_lines": mas_lines,
-        "start": start,
-        "end": end,
-    }
-
-    json.dump(data, my_file, indent=2)
+    my_file = open(f"{m.get()}.json", "w+")
+    t = []
+    for i in rect:
+        q = []
+        for j in range(len(i)):
+            q.append(i[j])
+        t.append(q)
+    json.dump({"react":t, "start": start, "end": end, "tochk": tochk}, my_file)
     my_file.close()
 
-
+#ввод через json
 def file_open():
-    file_path = T.get()
-    if not file_path.endswith(".json"):
-        file_path += ".json"
+    f = open(f'{T.get()}.json', "r+")
+    data = json.load(f)
+    global start
+    global tochk
+    global end
+    global mas_lines_rect
+    global mas_lines
+    tochk = data["tochk"]
+    start = data["start"]
+    canvas.create_oval(start[0]-3, start[1]-3, start[0]+3, start[1]+3, fill="yellow")
+    for i in tochk:
+        end = i
+        canvas.create_oval(end[0]-3, end[1]-3, end[0]+3, end[1]+3, fill="green")
+        mas_ver.append((i[0], i[1]))
+        vertices.add((i[0], i[1]))
 
-    try:
-        with open(file_path, "r") as f:
-            data = json.load(f)
+    mas_ver.append((start[0], start[1]))
+    vertices.add((start[0], start[1]))
+    for i in data["react"]:
+        mas_rect.append({i[0], i[1], i[2], i[3]})
+        rect.append([i[0], i[1], i[2], i[3]])
+        for j in range(1, 10):
+            mas_lines.append((i[0]+(i[2]- i[0])/10*j, i[1], i[0]+(i[2]- i[0])/10*j, i[3]))
+            mas_lines.append((i[0], i[1]+(i[3]-i[1])/10*j, i[2], i[1]+(i[3]-i[1])/10*j))
 
-            clear_graph()
-
-            # Восстанавливаем данные из файла
-            global mas_ver
-            mas_ver = data["mas_ver"]
-
-            global mas_lines
-            mas_lines = data["mas_lines"]
-
-            global start
-            start = data["start"]
-            canvas.create_oval(start[0] - 3, start[1] - 3, start[0] + 3, start[1] + 3, fill="yellow")
-
-            global end
-            end = data["end"]
-            canvas.create_oval(end[0] - 3, end[1] - 3, end[0] + 3, end[1] + 3, fill="green")
-
-            for line in mas_lines:
-                canvas.create_line(line[0], line[1], line[2], line[3], fill="red")
-
-            for vertex in mas_ver:
-                canvas.create_oval(vertex[0] - 3, vertex[1] - 3, vertex[0] + 3, vertex[1] + 3, fill="red")
-
-            # Закрашиваем треугольники черным цветом
-            for i in range(0, len(mas_ver), 3):
-                canvas.create_polygon(mas_ver[i], mas_ver[i + 1], mas_ver[i + 2], fill="black")
-
-    except FileNotFoundError:
-        print("File not found.")
-    except json.JSONDecodeError:
-        print("Error decoding JSON.")
+        canvas.create_rectangle(i, fill="black")
+        line1 = (i[0], i[1], i[0], i[3]) #левая сторона
+        line2 = (i[0], i[1], i[2], i[1]) #нижняя сторона
+        line3 = (i[0], i[3], i[2], i[3]) #верхняя сторона
+        line4 = (i[2], i[3], i[2], i[1]) #правая сторона
+        draw_line(*line1)
+        draw_line(*line2)
+        draw_line(*line3)
+        draw_line(*line4)
+        canvas.create_oval(i[0]-3,i[1]-3, i[0]+3, i[1]+3, fill="red")
+        canvas.create_oval(i[0]-3,i[3]-3, i[0]+3, i[3]+3, fill="red")
+        canvas.create_oval(i[2]-3,i[3]-3, i[2]+3, i[3]+3, fill="red")
+        canvas.create_oval(i[2]-3,i[1]-3, i[2]+3, i[1]+3, fill="red")
+        mas_lines_rect.append(line1)
+        mas_lines_rect.append(line2)
+        mas_lines_rect.append(line3)
+        mas_lines_rect.append(line4)
+        mas_ver.append((i[0], i[1]))
+        mas_ver.append((i[0], i[3]))
+        mas_ver.append((i[2], i[1]))
+        mas_ver.append((i[2], i[3]))
 
 
 def clear_graph():
@@ -274,6 +324,10 @@ def clear_graph():
     edges = []  # множество ребер
     global vertices
     vertices = set()  # множество вершин
+    global tochk
+    tochk = []
+    global mas_lines_rect
+    mas_lines_rect = []
 
 
 canvas = Canvas(bg="white", width=600, height=800)
@@ -298,7 +352,4 @@ clear_all.place(x=620, y=220, width=120, height=20)
 canvas.bind('<Button-3>', add_conclusion_vertex)
 canvas.bind('<Button-1>', click_button)
 
-# print(cross([2, 2, 7, 3],[4, 1, 5, 6]))
-# print(cross([5, 4, 10, 5],[3, 3, 7, 6]))
-# print(cross([0, 0, 5, 5],[3, 3, 7, 7]))
 root.mainloop()
