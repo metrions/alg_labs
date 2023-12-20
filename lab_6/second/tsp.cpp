@@ -287,10 +287,10 @@ vector<int> tsp(const Graph &graph) {
     vector<int> ver = graph.get_vertices();
     if (ver.size() < 2) return {};
 
-    int MaxIt = 10;
+    int MaxIt = 1000;
     double Pm = 0.5;
-    int N = 10;
-    int P = 100;
+    int N = 10;                                                 //Число сыновей
+    int P = 20;                                                 //число родителей
     vector<vector<int>> start_gen = new_gen(graph, ver, P);    //формирование нового гена или путя
     int it = 0;
 
