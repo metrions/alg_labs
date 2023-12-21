@@ -242,19 +242,25 @@ def add_conclusion_vertex(event):
     mas_ver.append((event.x, event.y))
 
 
-# сохранение в json
 def save():
     my_file = open(f"{m.get()}.json", "w+")
-    t = []
-    for i in rect:
-        q = []
-        for j in range(len(i)):
-            q.append(i[j])
-        t.append(q)
-    json.dump({"react":t, "start": start, "end": end, "tochk": tochk}, my_file)
+
+    t_rect = []  # массив для хранения координат треугольников
+    for i in mas_ver:
+        t_rect.append(i)
+
+    t_lines_rect = []  # массив для хранения ребер треугольников
+    for i in mas_lines:
+        t_lines_rect.append([i[0], i[1], i[2], i[3]])
+
+    t_tochk = []  # массив для хранения координат точек
+    for i in tochk:
+        t_tochk.append(i)
+
+    json.dump({"ver": t_rect, "lines": t_lines_rect, "start": start, "end": end, "tochk": t_tochk}, my_file)
     my_file.close()
 
-#ввод через json
+
 def file_open():
     f = open(f'{T.get()}.json', "r+")
     data = json.load(f)
@@ -265,43 +271,30 @@ def file_open():
     global mas_lines
     tochk = data["tochk"]
     start = data["start"]
-    canvas.create_oval(start[0]-3, start[1]-3, start[0]+3, start[1]+3, fill="yellow")
+    canvas.create_oval(start[0] - 3, start[1] - 3, start[0] + 3, start[1] + 3, fill="yellow")
+
     for i in tochk:
         end = i
-        canvas.create_oval(end[0]-3, end[1]-3, end[0]+3, end[1]+3, fill="green")
+        canvas.create_oval(end[0] - 3, end[1] - 3, end[0] + 3, end[1] + 3, fill="green")
         mas_ver.append((i[0], i[1]))
         vertices.add((i[0], i[1]))
 
     mas_ver.append((start[0], start[1]))
     vertices.add((start[0], start[1]))
-    for i in data["react"]:
-        mas_rect.append({i[0], i[1], i[2], i[3]})
-        rect.append([i[0], i[1], i[2], i[3]])
-        for j in range(1, 10):
-            mas_lines.append((i[0]+(i[2]- i[0])/10*j, i[1], i[0]+(i[2]- i[0])/10*j, i[3]))
-            mas_lines.append((i[0], i[1]+(i[3]-i[1])/10*j, i[2], i[1]+(i[3]-i[1])/10*j))
 
-        canvas.create_rectangle(i, fill="black")
-        line1 = (i[0], i[1], i[0], i[3]) #левая сторона
-        line2 = (i[0], i[1], i[2], i[1]) #нижняя сторона
-        line3 = (i[0], i[3], i[2], i[3]) #верхняя сторона
-        line4 = (i[2], i[3], i[2], i[1]) #правая сторона
-        draw_line(*line1)
-        draw_line(*line2)
-        draw_line(*line3)
-        draw_line(*line4)
-        canvas.create_oval(i[0]-3,i[1]-3, i[0]+3, i[1]+3, fill="red")
-        canvas.create_oval(i[0]-3,i[3]-3, i[0]+3, i[3]+3, fill="red")
-        canvas.create_oval(i[2]-3,i[3]-3, i[2]+3, i[3]+3, fill="red")
-        canvas.create_oval(i[2]-3,i[1]-3, i[2]+3, i[1]+3, fill="red")
-        mas_lines_rect.append(line1)
-        mas_lines_rect.append(line2)
-        mas_lines_rect.append(line3)
-        mas_lines_rect.append(line4)
-        mas_ver.append((i[0], i[1]))
-        mas_ver.append((i[0], i[3]))
-        mas_ver.append((i[2], i[1]))
-        mas_ver.append((i[2], i[3]))
+    t_rect = data["ver"]  # массив для хранения координат треугольников
+    for i in t_rect:
+        mas_ver.append(i)
+
+    t_lines_rect = data["lines"]  # массив для хранения ребер треугольников
+    for i in t_lines_rect:
+        mas_lines.append((i[0], i[1], i[2], i[3]))
+        draw_line(i[0], i[1], i[2], i[3])
+
+    canvas.create_polygon(mas_lines[0][0], mas_lines[0][1], mas_lines[1][0], mas_lines[1][1], mas_lines[2][0],
+                          mas_lines[2][1], fill="black")
+
+    f.close()
 
 
 def clear_graph():
